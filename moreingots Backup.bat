@@ -259,5 +259,3 @@ set i=1
 echo CraftDataPatcher.customItemSizes[key: TechType.TitaniumIngot] = new Vector2int(x: _xTitaniumIngot, y: _yTitaniumIngot); >> QPatch.cs
 echo }}} >> QPatch.cs
 move /y QPatch.cs "Subnautica Mods\MoreIngots\"
-echo y | del "Subnautica Mods\MoreIngots\moreingots Backup.bat"
-copy "moreingots Backup.bat" "Subnautica Mods\MoreIngots\"
