@@ -1,0 +1,11 @@
+{
+  "Id": "MoreIngots",
+  "DisplayName": "MoreIngots",
+  "Author": "AlexejheroYTB",
+  "Version": "1.0.0",
+  "Requires": [],
+  "Enable": true,
+  "AssemblyName": "MoreIngots.dll",
+  "EntryMethod": "MoreIngots.QPatch.Patch",
+  "Config": {}
+}
