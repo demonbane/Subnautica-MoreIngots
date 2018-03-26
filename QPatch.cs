@@ -280,18 +280,18 @@ namespace MoreIngots
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Gold, 10)
-},
+                {
+                    new IngredientHelper(TechType.Gold, 10)
+                },
                 _techType = techTypeMIGold
             };
             var techDataMIGoldB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIGold, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIGold, 1)
+                },
                 _techType = TechType.Gold
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Gold);
@@ -299,18 +299,18 @@ new IngredientHelper(techTypeMIGold, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Diamond, 10)
-},
+                {
+                    new IngredientHelper(TechType.Diamond, 10)
+                },
                 _techType = techTypeMIDiamond
             };
             var techDataMIDiamondB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIDiamond, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIDiamond, 1)
+                },
                 _techType = TechType.Diamond
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Diamond);
@@ -318,18 +318,18 @@ new IngredientHelper(techTypeMIDiamond, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Lithium, 10)
-},
+                {
+                    new IngredientHelper(TechType.Lithium, 10)
+                },
                 _techType = techTypeMILithium
             };
             var techDataMILithiumB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMILithium, 1)
-},
+                {
+                    new IngredientHelper(techTypeMILithium, 1)
+                },
                 _techType = TechType.Lithium
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Lithium);
@@ -337,18 +337,18 @@ new IngredientHelper(techTypeMILithium, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Copper, 10)
-},
+                {
+                    new IngredientHelper(TechType.Copper, 10)
+                },
                 _techType = techTypeMICopper
             };
             var techDataMICopperB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMICopper, 1)
-},
+                {
+                    new IngredientHelper(techTypeMICopper, 1)
+                },
                 _techType = TechType.Copper
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Copper);
@@ -356,18 +356,18 @@ new IngredientHelper(techTypeMICopper, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Lead, 10)
-},
+                {
+                    new IngredientHelper(TechType.Lead, 10)
+                },
                 _techType = techTypeMILead
             };
             var techDataMILeadB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMILead, 1)
-},
+                {
+                    new IngredientHelper(techTypeMILead, 1)
+                },
                 _techType = TechType.Lead
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Lead);
@@ -375,18 +375,18 @@ new IngredientHelper(techTypeMILead, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Silver, 10)
-},
+                {
+                    new IngredientHelper(TechType.Silver, 10)
+                },
                 _techType = techTypeMISilver
             };
             var techDataMISilverB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMISilver, 1)
-},
+                {
+                    new IngredientHelper(techTypeMISilver, 1)
+                },
                 _techType = TechType.Silver
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Silver);
@@ -394,18 +394,18 @@ new IngredientHelper(techTypeMISilver, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Magnetite, 10)
-},
+            {
+                new IngredientHelper(TechType.Magnetite, 10)
+            },
                 _techType = techTypeMIMagnetite
             };
             var techDataMIMagnetiteB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIMagnetite, 1)
-},
+            {
+                new IngredientHelper(techTypeMIMagnetite, 1)
+            },
                 _techType = TechType.Magnetite
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Magnetite);
@@ -413,18 +413,18 @@ new IngredientHelper(techTypeMIMagnetite, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Nickel, 10)
-},
+            {
+                new IngredientHelper(TechType.Nickel, 10)
+            },
                 _techType = techTypeMINickel
             };
             var techDataMINickelB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMINickel, 1)
-},
+            {
+                new IngredientHelper(techTypeMINickel, 1)
+            },
                 _techType = TechType.Nickel
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Nickel);
@@ -432,18 +432,18 @@ new IngredientHelper(techTypeMINickel, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Kyanite, 10)
-},
+            {
+                new IngredientHelper(TechType.Kyanite, 10)
+            },
                 _techType = techTypeMIKyanite
             };
             var techDataMIKyaniteB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIKyanite, 1)
-},
+            {
+                new IngredientHelper(techTypeMIKyanite, 1)
+            },
                 _techType = TechType.Kyanite
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Kyanite);
@@ -451,18 +451,18 @@ new IngredientHelper(techTypeMIKyanite, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.AluminumOxide, 10)
-},
+            {
+                new IngredientHelper(TechType.AluminumOxide, 10)
+            },
                 _techType = techTypeMIRuby
             };
             var techDataMIRubyB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIRuby, 1)
-},
+            {
+                new IngredientHelper(techTypeMIRuby, 1)
+            },
                 _techType = TechType.AluminumOxide
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.AluminumOxide);
@@ -470,18 +470,18 @@ new IngredientHelper(techTypeMIRuby, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.UraniniteCrystal, 10)
-},
+            {
+                new IngredientHelper(TechType.UraniniteCrystal, 10)
+            },
                 _techType = techTypeMIUraninite
             };
             var techDataMIUraniniteB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIUraninite, 1)
-},
+            {
+                new IngredientHelper(techTypeMIUraninite, 1)
+            },
                 _techType = TechType.UraniniteCrystal
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.UraniniteCrystal);
@@ -489,18 +489,18 @@ new IngredientHelper(techTypeMIUraninite, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Quartz, 10)
-},
+            {
+                new IngredientHelper(TechType.Quartz, 10)
+            },
                 _techType = techTypeMIQuartz
             };
             var techDataMIQuartzB = new TechDataHelper
             {
                 _craftAmount = 10,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIQuartz, 1)
-},
+            {
+                new IngredientHelper(techTypeMIQuartz, 1)
+            },
                 _techType = TechType.Quartz
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Quartz);
@@ -595,7 +595,7 @@ new IngredientHelper(techTypeMIQuartz, 1)
             if (e == null)
                 return string.Empty;
             return $"\"Exception: {e.GetType()}\"\n\tMessage: {e.Message}\n\tStacktrace: {e.StackTrace}\n" +
-                   FormatException(e.InnerException);
+                FormatException(e.InnerException);
         }
     }
 }
