@@ -71,8 +71,8 @@ namespace MoreIngots
             | Config.TryGet(ref _yMINickel, "Nickel Sheets - Nickel", "Size", "y")
             | Config.TryGet(ref _xMIKyanite, "Topaz - Kyanite", "Size", "x")
             | Config.TryGet(ref _yMIKyanite, "Topaz - Kyanite", "Size", "y")
-            | Config.TryGet(ref _xMIRuby, "Bauxite - AluminumOxide", "Size", "x")
-            | Config.TryGet(ref _yMIRuby, "Bauxite - AluminumOxide", "Size", "y")
+            | Config.TryGet(ref _xMIRuby, "Bauxite - Ruby", "Size", "x")
+            | Config.TryGet(ref _yMIRuby, "Bauxite - Ruby", "Size", "y")
             | Config.TryGet(ref _xMIUraninite, "Triuranium octoxide - UraniniteCrystal", "Size", "x")
             | Config.TryGet(ref _yMIUraninite, "Triuranium octoxide - UraniniteCrystal", "Size", "y")
             | Config.TryGet(ref _xMIQuartz, "Silicate - Quartz", "Size", "x")
@@ -221,14 +221,14 @@ namespace MoreIngots
             if (_xMIRuby <= 0)
             {
                 _xMIRuby = 1;
-                Config["Bauxite - AluminumOxide", "Size", "x"] = _xMIRuby;
+                Config["Bauxite - Ruby", "Size", "x"] = _xMIRuby;
                 Utilites.Logger.Logger.Error("Size of Bauxite can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
             }
             if (_yMIRuby <= 0)
             {
                 _yMIRuby = 1;
-                Config["Bauxite - AluminumOxide", "Size", "y"] = _yMIRuby;
+                Config["Bauxite - Ruby", "Size", "y"] = _yMIRuby;
                 Utilites.Logger.Logger.Error("Size of Bauxite can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
             }
