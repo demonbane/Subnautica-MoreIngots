@@ -3,10 +3,10 @@ using Harmony;
 namespace MoreIngots.Patches
 {
     [HarmonyPatch(typeof(CraftTree))]
-    [HarmonyPatch("FabricatorTabAdd")]
-    public class FabricatorTabAdd_Patch
+    [HarmonyPatch("FabricatorScheme")]
+    public class FabricatorScheme_Patch
     {
-        static bool PostfixCraftTreeInitialize()
+        static bool Postfix()
         {
             
         }
