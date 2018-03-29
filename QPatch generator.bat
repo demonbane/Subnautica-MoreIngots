@@ -258,8 +258,8 @@ echo var sprite!namespace[%i%]! = assetBundle.LoadAsset^<Sprite^>("!namespace[%i
 echo CustomSpriteHandler.customSprites.Add(new CustomSprite(techType!namespace[%i%]!, sprite!namespace[%i%]!)); >> QPatch.cs
 echo CraftDataPatcher.customTechData.Add(techType!namespace[%i%]!, techData!namespace[%i%]!); >> QPatch.cs
 echo CraftDataPatcher.customTechData.Add(TechType.!from[%i%]!, techData!namespace[%i%]!B); >> QPatch.cs
-echo CraftTreePatcher.customCraftNodes.Add("Resources/MoreIngots/Craft/!namespace[%i%]!", techType!namespace[%i%]!); >> QPatch.cs
-echo CraftTreePatcher.customCraftNodes.Add("Resources/MoreIngots/Unpack/!from[%i%]!", TechType.!from[%i%]!); >> QPatch.cs
+echo CraftTreePatcher.customCraftNodes.Add("Resources/Craft/!namespace[%i%]!", techType!namespace[%i%]!); >> QPatch.cs
+echo CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/!from[%i%]!", TechType.!from[%i%]!); >> QPatch.cs
 echo CraftDataPatcher.customItemSizes[key: techType!namespace[%i%]!] = new Vector2int(x: _x!namespace[%i%]!, y: _y!namespace[%i%]!); >> QPatch.cs
 set /a i+=1
 if !e[%i%]! == 1 goto loop6
