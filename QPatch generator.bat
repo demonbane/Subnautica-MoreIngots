@@ -268,6 +268,8 @@ set i=1
 
 
 echo CraftDataPatcher.customItemSizes[key: TechType.TitaniumIngot] = new Vector2int(x: _xTitaniumIngot, y: _yTitaniumIngot); >> QPatch.cs
+echo LanguagePatcher.customLines.Add("FabricatorMenu_Craft", "Craft MoreIngots"); >> QPatch.cs
+echo LanguagePatcher.customLines.Add("FabricatorMenu_Unpack", "Unpack MoreIngots"); >> QPatch.cs
 echo } >> QPatch.cs
 echo private static string FormatException(Exception e) >> QPatch.cs
 echo { >> QPatch.cs
