@@ -1,10 +1,7 @@
-using Harmony; 
-using SMLHelper; 
-using SMLHelper.Patchers; 
-using System; 
-using System.Collections.Generic; 
-using System.Reflection; 
-using UnityEngine; 
+using SMLHelper;
+using SMLHelper.Patchers;
+using System.Collections.Generic;
+using UnityEngine;
 using Utilites.Config;
 namespace MoreIngots
 {
