@@ -39,6 +39,15 @@ namespace MoreIngots
         private static int _yMIQuartz = 1;
         public static void Patch()
         {
+            try
+            {
+                var harmony = HarmonyInstance.Create("com.alexejheroytb.moreingots");
+                harmony.PatchAll(Assembly.GetExecutingAssembly());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"MoreIngots patch failed\n{FormatException(e)}");
+            }
             var assetBundle = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/moreingots.assets");
             Config.Load();
             var configChanged =
@@ -499,91 +508,96 @@ new IngredientHelper(techTypeMIQuartz, 1)
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold));
             CraftDataPatcher.customTechData.Add(techTypeMIGold, techDataMIGold);
             CraftDataPatcher.customTechData.Add(TechType.Gold, techDataMIGoldB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIGold, CraftScheme.Fabricator, "Resources/Craft/MIGold"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Gold, CraftScheme.Fabricator, "Resources/Unpack/Gold"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MIGold", techTypeMIGold);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Gold", TechType.Gold);
             CraftDataPatcher.customItemSizes[key: techTypeMIGold] = new Vector2int(x: _xMIGold, y: _yMIGold);
             var spriteMIDiamond = assetBundle.LoadAsset<Sprite>("MIDiamond");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIDiamond, spriteMIDiamond));
             CraftDataPatcher.customTechData.Add(techTypeMIDiamond, techDataMIDiamond);
             CraftDataPatcher.customTechData.Add(TechType.Diamond, techDataMIDiamondB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIDiamond, CraftScheme.Fabricator, "Resources/Craft/MIDiamond"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Diamond, CraftScheme.Fabricator, "Resources/Unpack/Diamond"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MIDiamond", techTypeMIDiamond);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Diamond", TechType.Diamond);
             CraftDataPatcher.customItemSizes[key: techTypeMIDiamond] = new Vector2int(x: _xMIDiamond, y: _yMIDiamond);
             var spriteMILithium = assetBundle.LoadAsset<Sprite>("MILithium");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILithium, spriteMILithium));
             CraftDataPatcher.customTechData.Add(techTypeMILithium, techDataMILithium);
             CraftDataPatcher.customTechData.Add(TechType.Lithium, techDataMILithiumB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMILithium, CraftScheme.Fabricator, "Resources/Craft/MILithium"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Lithium, CraftScheme.Fabricator, "Resources/Unpack/Lithium"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MILithium", techTypeMILithium);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Lithium", TechType.Lithium);
             CraftDataPatcher.customItemSizes[key: techTypeMILithium] = new Vector2int(x: _xMILithium, y: _yMILithium);
             var spriteMICopper = assetBundle.LoadAsset<Sprite>("MICopper");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMICopper, spriteMICopper));
             CraftDataPatcher.customTechData.Add(techTypeMICopper, techDataMICopper);
             CraftDataPatcher.customTechData.Add(TechType.Copper, techDataMICopperB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMICopper, CraftScheme.Fabricator, "Resources/Craft/MICopper"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Copper, CraftScheme.Fabricator, "Resources/Unpack/Copper"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MICopper", techTypeMICopper);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Copper", TechType.Copper);
             CraftDataPatcher.customItemSizes[key: techTypeMICopper] = new Vector2int(x: _xMICopper, y: _yMICopper);
             var spriteMILead = assetBundle.LoadAsset<Sprite>("MILead");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILead, spriteMILead));
             CraftDataPatcher.customTechData.Add(techTypeMILead, techDataMILead);
             CraftDataPatcher.customTechData.Add(TechType.Lead, techDataMILeadB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMILead, CraftScheme.Fabricator, "Resources/Craft/MILead"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Lead, CraftScheme.Fabricator, "Resources/Unpack/Lead"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MILead", techTypeMILead);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Lead", TechType.Lead);
             CraftDataPatcher.customItemSizes[key: techTypeMILead] = new Vector2int(x: _xMILead, y: _yMILead);
             var spriteMISilver = assetBundle.LoadAsset<Sprite>("MISilver");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISilver, spriteMISilver));
             CraftDataPatcher.customTechData.Add(techTypeMISilver, techDataMISilver);
             CraftDataPatcher.customTechData.Add(TechType.Silver, techDataMISilverB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMISilver, CraftScheme.Fabricator, "Resources/Craft/MISilver"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Silver, CraftScheme.Fabricator, "Resources/Unpack/Silver"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MISilver", techTypeMISilver);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Silver", TechType.Silver);
             CraftDataPatcher.customItemSizes[key: techTypeMISilver] = new Vector2int(x: _xMISilver, y: _yMISilver);
             var spriteMIMagnetite = assetBundle.LoadAsset<Sprite>("MIMagnetite");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIMagnetite, spriteMIMagnetite));
             CraftDataPatcher.customTechData.Add(techTypeMIMagnetite, techDataMIMagnetite);
             CraftDataPatcher.customTechData.Add(TechType.Magnetite, techDataMIMagnetiteB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIMagnetite, CraftScheme.Fabricator, "Resources/Craft/MIMagnetite"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Magnetite, CraftScheme.Fabricator, "Resources/Unpack/Magnetite"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MIMagnetite", techTypeMIMagnetite);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Magnetite", TechType.Magnetite);
             CraftDataPatcher.customItemSizes[key: techTypeMIMagnetite] = new Vector2int(x: _xMIMagnetite, y: _yMIMagnetite);
             var spriteMINickel = assetBundle.LoadAsset<Sprite>("MINickel");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMINickel, spriteMINickel));
             CraftDataPatcher.customTechData.Add(techTypeMINickel, techDataMINickel);
             CraftDataPatcher.customTechData.Add(TechType.Nickel, techDataMINickelB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMINickel, CraftScheme.Fabricator, "Resources/Craft/MINickel"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Nickel, CraftScheme.Fabricator, "Resources/Unpack/Nickel"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MINickel", techTypeMINickel);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Nickel", TechType.Nickel);
             CraftDataPatcher.customItemSizes[key: techTypeMINickel] = new Vector2int(x: _xMINickel, y: _yMINickel);
             var spriteMIKyanite = assetBundle.LoadAsset<Sprite>("MIKyanite");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIKyanite, spriteMIKyanite));
             CraftDataPatcher.customTechData.Add(techTypeMIKyanite, techDataMIKyanite);
             CraftDataPatcher.customTechData.Add(TechType.Kyanite, techDataMIKyaniteB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIKyanite, CraftScheme.Fabricator, "Resources/Craft/MIKyanite"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Kyanite, CraftScheme.Fabricator, "Resources/Unpack/Kyanite"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MIKyanite", techTypeMIKyanite);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Kyanite", TechType.Kyanite);
             CraftDataPatcher.customItemSizes[key: techTypeMIKyanite] = new Vector2int(x: _xMIKyanite, y: _yMIKyanite);
             var spriteMIRuby = assetBundle.LoadAsset<Sprite>("MIRuby");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIRuby, spriteMIRuby));
             CraftDataPatcher.customTechData.Add(techTypeMIRuby, techDataMIRuby);
             CraftDataPatcher.customTechData.Add(TechType.AluminumOxide, techDataMIRubyB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIRuby, CraftScheme.Fabricator, "Resources/Craft/MIRuby"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.AluminumOxide, CraftScheme.Fabricator, "Resources/Unpack/AluminumOxide"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MIRuby", techTypeMIRuby);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/AluminumOxide", TechType.AluminumOxide);
             CraftDataPatcher.customItemSizes[key: techTypeMIRuby] = new Vector2int(x: _xMIRuby, y: _yMIRuby);
             var spriteMIUraninite = assetBundle.LoadAsset<Sprite>("MIUraninite");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIUraninite, spriteMIUraninite));
             CraftDataPatcher.customTechData.Add(techTypeMIUraninite, techDataMIUraninite);
             CraftDataPatcher.customTechData.Add(TechType.UraniniteCrystal, techDataMIUraniniteB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIUraninite, CraftScheme.Fabricator, "Resources/Craft/MIUraninite"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.UraniniteCrystal, CraftScheme.Fabricator, "Resources/Unpack/UraniniteCrystal"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MIUraninite", techTypeMIUraninite);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/UraniniteCrystal", TechType.UraniniteCrystal);
             CraftDataPatcher.customItemSizes[key: techTypeMIUraninite] = new Vector2int(x: _xMIUraninite, y: _yMIUraninite);
             var spriteMIQuartz = assetBundle.LoadAsset<Sprite>("MIQuartz");
             CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIQuartz, spriteMIQuartz));
             CraftDataPatcher.customTechData.Add(techTypeMIQuartz, techDataMIQuartz);
             CraftDataPatcher.customTechData.Add(TechType.Quartz, techDataMIQuartzB);
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIQuartz, CraftScheme.Fabricator, "Resources/Craft/MIQuartz"));
-            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Quartz, CraftScheme.Fabricator, "Resources/Unpack/Quartz"));
+            CraftTreePatcher.customCraftNodes.Add("Resources/Craft/MIQuartz", techTypeMIQuartz);
+            CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/Quartz", TechType.Quartz);
             CraftDataPatcher.customItemSizes[key: techTypeMIQuartz] = new Vector2int(x: _xMIQuartz, y: _yMIQuartz);
-            var spritetabcraft = assetBundle.LoadAsset<Sprite>("MIFabTabCraft");
-            var spritetabunpack = assetBundle.LoadAsset<Sprite>("MIFabTabUnpack");
-            CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft));
-            CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack));
             CraftDataPatcher.customItemSizes[key: TechType.TitaniumIngot] = new Vector2int(x: _xTitaniumIngot, y: _yTitaniumIngot);
+            LanguagePatcher.customLines.Add("FabricatorMenu_Craft", "Craft MoreIngots");
+            LanguagePatcher.customLines.Add("FabricatorMenu_Unpack", "Unpack MoreIngots");
+        }
+        private static string FormatException(Exception e)
+        {
+            if (e == null)
+                return string.Empty;
+            return $"\"Exception: {e.GetType()}\"\n\tMessage: {e.Message}\n\tStacktrace: {e.StackTrace}\n" +
+            FormatException(e.InnerException);
         }
     }
 } 

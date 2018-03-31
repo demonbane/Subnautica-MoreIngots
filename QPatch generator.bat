@@ -152,15 +152,18 @@ set /a i+=1
 if !e[%i%]! == 1 goto loop1
 echo public static void Patch() >> QPatch.cs
 echo { >> QPatch.cs
-echo try >> QPatch.cs
-echo { >> QPatch.cs
-echo var harmony = HarmonyInstance.Create("com.alexejheroytb.moreingots"); >> QPatch.cs
-echo harmony.PatchAll(Assembly.GetExecutingAssembly()); >> QPatch.cs
-echo } >> QPatch.cs
-echo catch (Exception e) >> QPatch.cs
-echo { >> QPatch.cs
-echo Console.WriteLine($"MoreIngots patch failed!\n{FormatException(e)}"); >> QPatch.cs
-echo } >> QPatch.cs
+
+rem echo try >> QPatch.cs
+rem echo { >> QPatch.cs
+rem echo var harmony = HarmonyInstance.Create("com.alexejheroytb.moreingots"); >> QPatch.cs
+rem echo harmony.PatchAll(Assembly.GetExecutingAssembly()); >> QPatch.cs
+rem echo Console.WriteLine("Patched")
+rem echo } >> QPatch.cs
+rem echo catch (Exception e) >> QPatch.cs
+rem echo { >> QPatch.cs
+rem echo Console.WriteLine($"MoreIngots patch failed!\n{FormatException(e)}"); >> QPatch.cs
+rem echo } >> QPatch.cs
+
 echo var assetBundle = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/moreingots.assets"); >> QPatch.cs
 echo Config.Load(); >> QPatch.cs
 echo var configChanged =  >> QPatch.cs
@@ -178,17 +181,17 @@ if !e[%i%]! == 1 goto loop2
 echo ; >> QPatch.cs
 echo if (_xTitaniumIngot ^<= 0) >> QPatch.cs
 echo { >> QPatch.cs
-echo   _xTitaniumIngot = 1; >> QPatch.cs
-echo  Config["Titanium Ingot - Titanium", "Size", "x"] = _xTitaniumIngot; >> QPatch.cs
-echo  Utilites.Logger.Logger.Error("Size of Titanium Ingot can't be less or equal to 0! X was set to 1", Utilites.Logger.LogType.Custom ^| Utilites.Logger.LogType.Console); >> QPatch.cs
-echo  configChanged = true; >> QPatch.cs
+echo _xTitaniumIngot = 1; >> QPatch.cs
+echo Config["Titanium Ingot - Titanium", "Size", "x"] = _xTitaniumIngot; >> QPatch.cs
+echo Utilites.Logger.Logger.Error("Size of Titanium Ingot can't be less or equal to 0! X was set to 1", Utilites.Logger.LogType.Custom ^| Utilites.Logger.LogType.Console); >> QPatch.cs
+echo configChanged = true; >> QPatch.cs
 echo } >> QPatch.cs
 echo if (_yTitaniumIngot ^<= 0) >> QPatch.cs
 echo { >> QPatch.cs
-echo   _yTitaniumIngot = 1; >> QPatch.cs
-echo  Config["Titanium Ingot - Titanium", "Size", "y"] = _yTitaniumIngot; >> QPatch.cs
-echo  Utilites.Logger.Logger.Error("Size of Titanium Ingot can't be less or equal to 0! Y was set to 1", Utilites.Logger.LogType.Custom ^| Utilites.Logger.LogType.Console); >> QPatch.cs
-echo  configChanged = true; >> QPatch.cs
+echo _yTitaniumIngot = 1; >> QPatch.cs
+echo Config["Titanium Ingot - Titanium", "Size", "y"] = _yTitaniumIngot; >> QPatch.cs
+echo Utilites.Logger.Logger.Error("Size of Titanium Ingot can't be less or equal to 0! Y was set to 1", Utilites.Logger.LogType.Custom ^| Utilites.Logger.LogType.Console); >> QPatch.cs
+echo configChanged = true; >> QPatch.cs
 echo } >> QPatch.cs
 set i=1
 
@@ -197,17 +200,17 @@ set i=1
 :loop3
 echo if (_x!namespace[%i%]! ^<= 0) >> QPatch.cs
 echo { >> QPatch.cs
-echo   _x!namespace[%i%]! = 1; >> QPatch.cs
-echo   Config["!name[%i%]! - !from[%i%]!", "Size", "x"] = _x!namespace[%i%]!; >> QPatch.cs
-echo   Utilites.Logger.Logger.Error("Size of !name[%i%]! can't be less or equal to 0! X was set to 1", Utilites.Logger.LogType.Custom ^| Utilites.Logger.LogType.Console); >> QPatch.cs
-echo   configChanged = true; >> QPatch.cs
+echo _x!namespace[%i%]! = 1; >> QPatch.cs
+echo Config["!name[%i%]! - !from[%i%]!", "Size", "x"] = _x!namespace[%i%]!; >> QPatch.cs
+echo Utilites.Logger.Logger.Error("Size of !name[%i%]! can't be less or equal to 0! X was set to 1", Utilites.Logger.LogType.Custom ^| Utilites.Logger.LogType.Console); >> QPatch.cs
+echo configChanged = true; >> QPatch.cs
 echo } >> QPatch.cs
 echo if (_y!namespace[%i%]! ^<= 0) >> QPatch.cs
 echo { >> QPatch.cs
-echo   _y!namespace[%i%]! = 1; >> QPatch.cs
-echo   Config["!name[%i%]! - !from[%i%]!", "Size", "y"] = _y!namespace[%i%]!; >> QPatch.cs
-echo   Utilites.Logger.Logger.Error("Size of !name[%i%]! can't be less or equal to 0! Y was set to 1", Utilites.Logger.LogType.Custom ^| Utilites.Logger.LogType.Console); >> QPatch.cs
-echo   configChanged = true; >> QPatch.cs
+echo _y!namespace[%i%]! = 1; >> QPatch.cs
+echo Config["!name[%i%]! - !from[%i%]!", "Size", "y"] = _y!namespace[%i%]!; >> QPatch.cs
+echo Utilites.Logger.Logger.Error("Size of !name[%i%]! can't be less or equal to 0! Y was set to 1", Utilites.Logger.LogType.Custom ^| Utilites.Logger.LogType.Console); >> QPatch.cs
+echo configChanged = true; >> QPatch.cs
 echo } >> QPatch.cs
 set /a i+=1
 if !e[%i%]! == 1 goto loop3
@@ -258,24 +261,29 @@ echo var sprite!namespace[%i%]! = assetBundle.LoadAsset^<Sprite^>("!namespace[%i
 echo CustomSpriteHandler.customSprites.Add(new CustomSprite(techType!namespace[%i%]!, sprite!namespace[%i%]!)); >> QPatch.cs
 echo CraftDataPatcher.customTechData.Add(techType!namespace[%i%]!, techData!namespace[%i%]!); >> QPatch.cs
 echo CraftDataPatcher.customTechData.Add(TechType.!from[%i%]!, techData!namespace[%i%]!B); >> QPatch.cs
-echo CraftTreePatcher.customCraftNodes.Add("Resources/Craft/!namespace[%i%]!", techType!namespace[%i%]!); >> QPatch.cs
-echo CraftTreePatcher.customCraftNodes.Add("Resources/Unpack/!from[%i%]!", TechType.!from[%i%]!); >> QPatch.cs
+echo CraftTreePatcher.customNodes.Add(new CustomCraftNode(techType!namespace[%i%]!, CraftScheme.Fabricator, "Resources/Craft/!namespace[%i%]!")); >> QPatch.cs
+echo CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.!from[%i%]!, CraftScheme.Fabricator, "Resources/Unpack/!from[%i%]!")); >> QPatch.cs
 echo CraftDataPatcher.customItemSizes[key: techType!namespace[%i%]!] = new Vector2int(x: _x!namespace[%i%]!, y: _y!namespace[%i%]!); >> QPatch.cs
 set /a i+=1
 if !e[%i%]! == 1 goto loop6
 set i=1
 
 
-
+echo var spritetabcraft = assetBundle.LoadAsset^<Sprite^>("MIFabTabCraft"); >> QPatch.cs
+echo var spritetabunpack = assetBundle.LoadAsset^<Sprite^>("MIFabTabUnpack"); >> QPatch.cs
+echo CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft)); >> QPatch.cs
+echo CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack)); >> QPatch.cs
 echo CraftDataPatcher.customItemSizes[key: TechType.TitaniumIngot] = new Vector2int(x: _xTitaniumIngot, y: _yTitaniumIngot); >> QPatch.cs
-echo LanguagePatcher.customLines.Add("FabricatorMenu_Craft", "Craft MoreIngots"); >> QPatch.cs
-echo LanguagePatcher.customLines.Add("FabricatorMenu_Unpack", "Unpack MoreIngots"); >> QPatch.cs
-echo } >> QPatch.cs
-echo private static string FormatException(Exception e) >> QPatch.cs
-echo { >> QPatch.cs
-echo if (e == null) >> QPatch.cs
-echo return string.Empty; >> QPatch.cs
-echo return $"\"Exception: {e.GetType()}\"\n\tMessage: {e.Message}\n\tStacktrace: {e.StackTrace}\n" + >> QPatch.cs
-echo FormatException(e.InnerException); >> QPatch.cs
+
+rem echo LanguagePatcher.customLines.Add("FabricatorMenu_Craft", "Craft MoreIngots"); >> QPatch.cs
+rem echo LanguagePatcher.customLines.Add("FabricatorMenu_Unpack", "Unpack MoreIngots"); >> QPatch.cs
+rem echo } >> QPatch.cs
+rem echo private static string FormatException(Exception e) >> QPatch.cs
+rem echo { >> QPatch.cs
+rem echo if (e == null) >> QPatch.cs
+rem echo return string.Empty; >> QPatch.cs
+rem echo return $"\"Exception: {e.GetType()}\"\n\tMessage: {e.Message}\n\tStacktrace: {e.StackTrace}\n" + >> QPatch.cs
+rem echo FormatException(e.InnerException); >> QPatch.cs
+
 echo }}} >> QPatch.cs
 move /y QPatch.cs "Subnautica Mods\MoreIngots\"

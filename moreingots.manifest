@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1357097029
+CRC: 2914642109
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 866cf083fef67d0c9bd2b613c2500ea8
+    Hash: b3d7c036263e5aa65a9d4abda47d47fe
   TypeTreeHash:
     serializedVersion: 2
     Hash: 21f0dc8ebad690f009368069428e0a1a
@@ -14,16 +14,18 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
+- Assets/MILithium.png
+- Assets/MISilver.png
+- Assets/MIDiamond.png
+- Assets/MIMagnetite.png
+- Assets/MILead.png
+- Assets/MIUraninite.png
+- Assets/MIQuartz.png
+- Assets/MINickel.png
 - Assets/MIRuby.png
+- Assets/MIGold.png
+- Assets/MIFabTabUnpack.png
+- Assets/MIFabTabCraft.png
 - Assets/MIKyanite.png
 - Assets/MICopper.png
-- Assets/MILead.png
-- Assets/MIQuartz.png
-- Assets/MIMagnetite.png
-- Assets/MIUraninite.png
-- Assets/MIDiamond.png
-- Assets/MISilver.png
-- Assets/MINickel.png
-- Assets/MILithium.png
-- Assets/MIGold.png
 Dependencies: []
