@@ -37,8 +37,8 @@ namespace MoreIngots
         private static int _yMIQuartz = 1;
         public static void Patch()
         {
-            var assetBundle = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/moreingots.assets");
-            var assetBundlealt = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/yenzen-ingotsplus.assets");
+            var assetBundle = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/moreingots.assets");
+            var assetBundlealt = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/yenzen-ingotsplus.assets");
             Config.Load();
             var configChanged =
             Config.TryGet(ref _alttextures, "Alternative textures")
