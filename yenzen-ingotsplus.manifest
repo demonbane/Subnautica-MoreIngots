@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 1350125036
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 196394d1b48ac8ac1e5f8baa2d72a698
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/IPLithium.png
+- Assets/IPFabTabUnpack.png
+- Assets/IPLead.png
+- Assets/IPCopper.png
+- Assets/IPDiamond.png
+- Assets/IPFabTabCraft.png
+- Assets/IPMagnetite.png
+- Assets/IPGold.png
+- Assets/IPUraninite.png
+- Assets/IPNickel.png
+- Assets/IPRuby.png
+- Assets/IPQuartz.png
+- Assets/IPKyanite.png
+- Assets/IPSilver.png
+Dependencies: []
