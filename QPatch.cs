@@ -8,7 +8,7 @@ namespace MoreIngots
     public class QPatch
     {
         private static readonly ConfigFile Config = new ConfigFile("config");
-        private static string _alttextures = "false";
+        private static bool _alttextures = false;
         private static int _xTitaniumIngot = 1;
         private static int _yTitaniumIngot = 1;
         private static int _xMIGold = 1;
@@ -69,11 +69,11 @@ namespace MoreIngots
             | Config.TryGet(ref _xMIQuartz, "Quartz Ingot", "Size", "x")
             | Config.TryGet(ref _yMIQuartz, "Quartz Ingot", "Size", "y")
             ;
-            if (_alttextures == "false") { }
-            else if (_alttextures == "true") { }
+            if (_alttextures == false) { }
+            else if (_alttextures == true) { }
             else
             {
-                _alttextures = "false";
+                _alttextures = false;
                 Config["Alternative textures"] = _alttextures;
                 Utilites.Logger.Logger.Error("Alternative textures must be \"true\" or \"false\"", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
@@ -532,7 +532,7 @@ new IngredientHelper(techTypeMIQuartz, 1)
             var spriteMIQuartz2 = assetBundlealt.LoadAsset<Sprite>("IPQuartz");
             var spritetabcraft2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabCraft");
             var spritetabunpack2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabUnpack");
-            if (_alttextures == "true")
+            if (_alttextures == true)
             {
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIDiamond, spriteMIDiamond));
