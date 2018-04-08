@@ -35,15 +35,32 @@ namespace MoreIngots
         private static int _yMIUraninite = 1;
         private static int _xMIQuartz = 1;
         private static int _yMIQuartz = 1;
+        private static int _xMISalt = 1;
+        private static int _yMISalt = 1;
+        private static int _aMIGold = 10;
+        private static int _aMIDiamond = 10;
+        private static int _aMILithium = 10;
+        private static int _aMICopper = 10;
+        private static int _aMILead = 10;
+        private static int _aMISilver = 10;
+        private static int _aMIMagnetite = 10;
+        private static int _aMINickel = 10;
+        private static int _aMIKyanite = 10;
+        private static int _aMIRuby = 10;
+        private static int _aMIUraninite = 10;
+        private static int _aMIQuartz = 10;
+        private static int _aMISalt = 10;
         public static void Patch()
         {
             var assetBundle = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/moreingots.assets");
             var assetBundlealt = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/yenzen-ingotsplus.assets");
+            var saltassetsalex = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-alexejheroytb.assets");
+            var saltassetsyenz = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-yenzen.assets");
             Config.Load();
             var configChanged =
             Config.TryGet(ref _alttextures, "Alternative textures")
-            | Config.TryGet(ref _xTitaniumIngot, "TItanium Ingot", "Size", "x")
-            | Config.TryGet(ref _yTitaniumIngot, "TItanium Ingot", "Size", "y")
+            | Config.TryGet(ref _xTitaniumIngot, "Titanium Ingot", "Size", "x")
+            | Config.TryGet(ref _yTitaniumIngot, "Titanium Ingot", "Size", "y")
             | Config.TryGet(ref _xMIGold, "Gold Ingot", "Size", "x")
             | Config.TryGet(ref _yMIGold, "Gold Ingot", "Size", "y")
             | Config.TryGet(ref _xMIDiamond, "Diamond Ingot", "Size", "x")
@@ -54,8 +71,8 @@ namespace MoreIngots
             | Config.TryGet(ref _yMICopper, "Copper Ingot", "Size", "y")
             | Config.TryGet(ref _xMILead, "Lead Ingot", "Size", "x")
             | Config.TryGet(ref _yMILead, "Lead Ingot", "Size", "y")
-            | Config.TryGet(ref _xMISilver, "SIlver Ingot", "Size", "x")
-            | Config.TryGet(ref _yMISilver, "SIlver Ingot", "Size", "y")
+            | Config.TryGet(ref _xMISilver, "Silver Ingot", "Size", "x")
+            | Config.TryGet(ref _yMISilver, "Silver Ingot", "Size", "y")
             | Config.TryGet(ref _xMIMagnetite, "Magnetite Ingot", "Size", "x")
             | Config.TryGet(ref _yMIMagnetite, "Magnetite Ingot", "Size", "y")
             | Config.TryGet(ref _xMINickel, "Nickel Ingot", "Size", "x")
@@ -68,8 +85,22 @@ namespace MoreIngots
             | Config.TryGet(ref _yMIUraninite, "Uraninite Ingot", "Size", "y")
             | Config.TryGet(ref _xMIQuartz, "Quartz Ingot", "Size", "x")
             | Config.TryGet(ref _yMIQuartz, "Quartz Ingot", "Size", "y")
-            ;
-            if (_alttextures == false) { }
+            | Config.TryGet(ref _xMISalt, "Salt Lick", "Size", "x")
+            | Config.TryGet(ref _yMISalt, "Salt Lick", "Size", "y")
+            | Config.TryGet(ref _aMIGold, "Gold Ingot", "Craft amount")
+            | Config.TryGet(ref _aMIDiamond, "Diamond Ingot", "Craft amount")
+            | Config.TryGet(ref _aMILithium, "Lithium Ingot", "Craft amount")
+            | Config.TryGet(ref _aMICopper, "Copper Ingot", "Craft amount")
+            | Config.TryGet(ref _aMILead, "Lead Ingot", "Craft amount")
+            | Config.TryGet(ref _aMISilver, "Silver Ingot", "Craft amount")
+            | Config.TryGet(ref _aMIMagnetite, "Magnetite Ingot", "Craft amount")
+            | Config.TryGet(ref _aMINickel, "Nickel Ingot", "Craft amount")
+            | Config.TryGet(ref _aMIKyanite, "Kyanite Ingot", "Craft amount")
+            | Config.TryGet(ref _aMIRuby, "Ruby Ingot", "Craft amount")
+            | Config.TryGet(ref _aMIUraninite, "Uraninite Ingot", "Craft amount")
+            | Config.TryGet(ref _aMIQuartz, "Quartz Ingot", "Craft amount")
+            | Config.TryGet(ref _aMISalt, "Salt Lick", "Craft amount");
+            /* if (_alttextures == false) { }
             else if (_alttextures == true) { }
             else
             {
@@ -77,18 +108,18 @@ namespace MoreIngots
                 Config["Alternative textures"] = _alttextures;
                 Utilites.Logger.Logger.Error("Alternative textures must be \"true\" or \"false\"", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
-            }
+            } */
             if (_xTitaniumIngot <= 0)
             {
                 _xTitaniumIngot = 1;
-                Config["TItanium Ingot", "Size", "x"] = _xTitaniumIngot;
+                Config["Titanium Ingot", "Size", "x"] = _xTitaniumIngot;
                 Utilites.Logger.Logger.Error("Size of Titanium Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
             }
             if (_yTitaniumIngot <= 0)
             {
                 _yTitaniumIngot = 1;
-                Config["TItanium Ingot", "Size", "y"] = _yTitaniumIngot;
+                Config["Titanium Ingot", "Size", "y"] = _yTitaniumIngot;
                 Utilites.Logger.Logger.Error("Size of Titanium Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
             }
@@ -165,14 +196,14 @@ namespace MoreIngots
             if (_xMISilver <= 0)
             {
                 _xMISilver = 1;
-                Config["SIlver Ingot", "Size", "x"] = _xMISilver;
+                Config["Silver Ingot", "Size", "x"] = _xMISilver;
                 Utilites.Logger.Logger.Error("Size of Silver Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
             }
             if (_yMISilver <= 0)
             {
                 _yMISilver = 1;
-                Config["SIlver Ingot", "Size", "y"] = _yMISilver;
+                Config["Silver Ingot", "Size", "y"] = _yMISilver;
                 Utilites.Logger.Logger.Error("Size of Silver Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
             }
@@ -260,12 +291,208 @@ namespace MoreIngots
                 Utilites.Logger.Logger.Error("Size of Quartz Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
                 configChanged = true;
             }
+            if (_xMISalt <= 0)
+            {
+                _xMISalt = 1;
+                Config["Salt Lick", "Size", "x"] = _xMISalt;
+                Utilites.Logger.Logger.Error("Size of Salt Lick can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_yMISalt <= 0)
+            {
+                _yMISalt = 1;
+                Config["Salt Lick", "Size", "y"] = _yMISalt;
+                Utilites.Logger.Logger.Error("Size of Salt Lick can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIGold <= 0)
+            {
+                _aMIGold = 10;
+                Config["Gold Ingot", "Craft amount"] = _aMIGold;
+                Utilites.Logger.Logger.Error("Craft amount of Gold Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIGold > 10)
+            {
+                _aMIGold = 10;
+                Config["Gold Ingot", "Craft amount"] = _aMIGold;
+                Utilites.Logger.Logger.Error("Craft amount of Gold Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIDiamond <= 0)
+            {
+                _aMIDiamond = 10;
+                Config["Diamond Ingot", "Craft amount"] = _aMIDiamond;
+                Utilites.Logger.Logger.Error("Craft amount of Diamond Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIDiamond > 10)
+            {
+                _aMIDiamond = 10;
+                Config["Diamond Ingot", "Craft amount"] = _aMIDiamond;
+                Utilites.Logger.Logger.Error("Craft amount of Diamond Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMILithium <= 0)
+            {
+                _aMILithium = 10;
+                Config["Lithium Ingot", "Craft amount"] = _aMILithium;
+                Utilites.Logger.Logger.Error("Craft amount of Lithium Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMILithium > 10)
+            {
+                _aMILithium = 10;
+                Config["Lithium Ingot", "Craft amount"] = _aMILithium;
+                Utilites.Logger.Logger.Error("Craft amount of Lithium Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMICopper <= 0)
+            {
+                _aMICopper = 10;
+                Config["Copper Ingot", "Craft amount"] = _aMICopper;
+                Utilites.Logger.Logger.Error("Craft amount of Copper Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMICopper > 10)
+            {
+                _aMICopper = 10;
+                Config["Copper Ingot", "Craft amount"] = _aMICopper;
+                Utilites.Logger.Logger.Error("Craft amount of Copper Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMILead <= 0)
+            {
+                _aMILead = 10;
+                Config["Lead Ingot", "Craft amount"] = _aMILead;
+                Utilites.Logger.Logger.Error("Craft amount of Lead Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMILead > 10)
+            {
+                _aMILead = 10;
+                Config["Lead Ingot", "Craft amount"] = _aMILead;
+                Utilites.Logger.Logger.Error("Craft amount of Lead Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMISilver <= 0)
+            {
+                _aMISilver = 10;
+                Config["Silver Ingot", "Craft amount"] = _aMISilver;
+                Utilites.Logger.Logger.Error("Craft amount of Silver Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMISilver > 10)
+            {
+                _aMISilver = 10;
+                Config["Silver Ingot", "Craft amount"] = _aMISilver;
+                Utilites.Logger.Logger.Error("Craft amount of Silver Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIMagnetite <= 0)
+            {
+                _aMIMagnetite = 10;
+                Config["Magnetite Ingot", "Craft amount"] = _aMIMagnetite;
+                Utilites.Logger.Logger.Error("Craft amount of Magnetite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIMagnetite > 10)
+            {
+                _aMIMagnetite = 10;
+                Config["Magnetite Ingot", "Craft amount"] = _aMIMagnetite;
+                Utilites.Logger.Logger.Error("Craft amount of Magnetite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMINickel <= 0)
+            {
+                _aMINickel = 10;
+                Config["Nickel Ingot", "Craft amount"] = _aMINickel;
+                Utilites.Logger.Logger.Error("Craft amount of Nickel Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMINickel > 10)
+            {
+                _aMINickel = 10;
+                Config["Nickel Ingot", "Craft amount"] = _aMINickel;
+                Utilites.Logger.Logger.Error("Craft amount of Nickel Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIKyanite <= 0)
+            {
+                _aMIKyanite = 10;
+                Config["Kyanite Ingot", "Craft amount"] = _aMIKyanite;
+                Utilites.Logger.Logger.Error("Craft amount of Kyanite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIKyanite > 10)
+            {
+                _aMIKyanite = 10;
+                Config["Kyanite Ingot", "Craft amount"] = _aMIKyanite;
+                Utilites.Logger.Logger.Error("Craft amount of Kyanite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIRuby <= 0)
+            {
+                _aMIRuby = 10;
+                Config["Ruby Ingot", "Craft amount"] = _aMIRuby;
+                Utilites.Logger.Logger.Error("Craft amount of Ruby Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIRuby > 10)
+            {
+                _aMIRuby = 10;
+                Config["Ruby Ingot", "Craft amount"] = _aMIRuby;
+                Utilites.Logger.Logger.Error("Craft amount of Ruby Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIUraninite <= 0)
+            {
+                _aMIUraninite = 10;
+                Config["Uraninite Ingot", "Craft amount"] = _aMIUraninite;
+                Utilites.Logger.Logger.Error("Craft amount of Uraninite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIUraninite > 10)
+            {
+                _aMIUraninite = 10;
+                Config["Uraninite Ingot", "Craft amount"] = _aMIUraninite;
+                Utilites.Logger.Logger.Error("Craft amount of Uraninite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIQuartz <= 0)
+            {
+                _aMIQuartz = 10;
+                Config["Quartz Ingot", "Craft amount"] = _aMIQuartz;
+                Utilites.Logger.Logger.Error("Craft amount of Quartz Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMIQuartz > 10)
+            {
+                _aMIQuartz = 10;
+                Config["Quartz Ingot", "Craft amount"] = _aMIQuartz;
+                Utilites.Logger.Logger.Error("Craft amount of Quartz Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMISalt <= 0)
+            {
+                _aMISalt = 10;
+                Config["Salt Lick", "Craft amount"] = _aMISalt;
+                Utilites.Logger.Logger.Error("Craft amount of Salt Lick can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
+            if (_aMISalt > 10)
+            {
+                _aMISalt = 10;
+                Config["Salt Lick", "Craft amount"] = _aMISalt;
+                Utilites.Logger.Logger.Error("Craft amount of Salt Lick can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                configChanged = true;
+            }
             if (configChanged)
             {
                 Config.Save();
             }
             var techTypeMIGold = TechTypePatcher.AddTechType("MIGold", "Gold Ingot", "Au. Condensed gold. Added by MoreIngots mod. ");
-            var techTypeMIDiamond = TechTypePatcher.AddTechType("MIDiamond", "Diamond Ingot", "C. Condensed diamond. Added by MoreIngots mod");
+            var techTypeMIDiamond = TechTypePatcher.AddTechType("MIDiamond", "Compressed Diamond", "C. Condensed diamond. Added by MoreIngots mod");
             var techTypeMILithium = TechTypePatcher.AddTechType("MILithium", "Lithium Ingot", "Li. Condensed lithium. Added by MoreIngots mod");
             var techTypeMICopper = TechTypePatcher.AddTechType("MICopper", "Copper Ingot", "Cu. Condensed copper. Added by MoreIngots mod");
             var techTypeMILead = TechTypePatcher.AddTechType("MILead", "Lead Ingot", "Pb. Condensed lead. Added by MoreIngots mod");
@@ -275,23 +502,24 @@ namespace MoreIngots
             var techTypeMIKyanite = TechTypePatcher.AddTechType("MIKyanite", "Kyanite Ingot", "Al2(F,OH)2SiO4. Condensed kyanite. Added by MoreIngots mod");
             var techTypeMIRuby = TechTypePatcher.AddTechType("MIRuby", "Ruby Ingot", "Al(OH)3. Condensed ruby. Added by MoreIngots mod");
             var techTypeMIUraninite = TechTypePatcher.AddTechType("MIUraninite", "Uraninite Ingot", "U3O8. Condensed uraninite. Added by MoreIngots mod");
-            var techTypeMIQuartz = TechTypePatcher.AddTechType("MIQuartz", "Quartz Ingot", "SiO4. Condensed quartz. Added by MoreIngots mod");
+            var techTypeMIQuartz = TechTypePatcher.AddTechType("MIQuartz", "Compressed Quartz", "SiO4. Condensed quartz. Added by MoreIngots mod");
+            var techTypeMISalt = TechTypePatcher.AddTechType("MISalt", "Salt Lick", "NaCl. Salt. Added by MoreIngtos mod");
             var techDataMIGold = new TechDataHelper
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Gold, 10)
-},
+                {
+                    new IngredientHelper(TechType.Gold, _aMIGold)
+                },
                 _techType = techTypeMIGold
             };
             var techDataMIGoldB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMIGold,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIGold, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIGold, 1)
+                },
                 _techType = TechType.Gold
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Gold);
@@ -299,18 +527,18 @@ new IngredientHelper(techTypeMIGold, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Diamond, 10)
-},
+                {
+                    new IngredientHelper(TechType.Diamond, _aMIDiamond)
+                },
                 _techType = techTypeMIDiamond
             };
             var techDataMIDiamondB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMIDiamond,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIDiamond, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIDiamond, 1)
+                },
                 _techType = TechType.Diamond
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Diamond);
@@ -318,18 +546,18 @@ new IngredientHelper(techTypeMIDiamond, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Lithium, 10)
-},
+                {
+                    new IngredientHelper(TechType.Lithium, _aMILithium)
+                },
                 _techType = techTypeMILithium
             };
             var techDataMILithiumB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMILithium,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMILithium, 1)
-},
+                {
+                    new IngredientHelper(techTypeMILithium, 1)
+}               ,
                 _techType = TechType.Lithium
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Lithium);
@@ -337,18 +565,18 @@ new IngredientHelper(techTypeMILithium, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Copper, 10)
-},
+                {
+                    new IngredientHelper(TechType.Copper, _aMICopper)
+                },
                 _techType = techTypeMICopper
             };
             var techDataMICopperB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMICopper,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMICopper, 1)
-},
+                {
+                    new IngredientHelper(techTypeMICopper, 1)
+                },
                 _techType = TechType.Copper
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Copper);
@@ -356,18 +584,18 @@ new IngredientHelper(techTypeMICopper, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Lead, 10)
-},
+                {
+                    new IngredientHelper(TechType.Lead, _aMILead)
+                },
                 _techType = techTypeMILead
             };
             var techDataMILeadB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMILead,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMILead, 1)
-},
+                {
+                    new IngredientHelper(techTypeMILead, 1)
+                },
                 _techType = TechType.Lead
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Lead);
@@ -375,18 +603,18 @@ new IngredientHelper(techTypeMILead, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Silver, 10)
-},
+                {
+                    new IngredientHelper(TechType.Silver, _aMISilver)
+                },
                 _techType = techTypeMISilver
             };
             var techDataMISilverB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMISilver,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMISilver, 1)
-},
+                {
+                    new IngredientHelper(techTypeMISilver, 1)
+                },
                 _techType = TechType.Silver
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Silver);
@@ -394,18 +622,18 @@ new IngredientHelper(techTypeMISilver, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Magnetite, 10)
-},
+                {
+                    new IngredientHelper(TechType.Magnetite, _aMIMagnetite)
+                },
                 _techType = techTypeMIMagnetite
             };
             var techDataMIMagnetiteB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMIMagnetite,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIMagnetite, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIMagnetite, 1)
+                },
                 _techType = TechType.Magnetite
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Magnetite);
@@ -413,18 +641,18 @@ new IngredientHelper(techTypeMIMagnetite, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Nickel, 10)
-},
+                {
+                    new IngredientHelper(TechType.Nickel, _aMINickel)
+                },
                 _techType = techTypeMINickel
             };
             var techDataMINickelB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMINickel,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMINickel, 1)
-},
+                {
+                    new IngredientHelper(techTypeMINickel, 1)
+                },
                 _techType = TechType.Nickel
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Nickel);
@@ -432,18 +660,18 @@ new IngredientHelper(techTypeMINickel, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Kyanite, 10)
-},
+                {
+                    new IngredientHelper(TechType.Kyanite, _aMIKyanite)
+                },
                 _techType = techTypeMIKyanite
             };
             var techDataMIKyaniteB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMIKyanite,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIKyanite, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIKyanite, 1)
+                },
                 _techType = TechType.Kyanite
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Kyanite);
@@ -451,18 +679,18 @@ new IngredientHelper(techTypeMIKyanite, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.AluminumOxide, 10)
-},
+                {
+                    new IngredientHelper(TechType.AluminumOxide, _aMIRuby)
+                },
                 _techType = techTypeMIRuby
             };
             var techDataMIRubyB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMIRuby,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIRuby, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIRuby, 1)
+                },
                 _techType = TechType.AluminumOxide
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.AluminumOxide);
@@ -470,18 +698,18 @@ new IngredientHelper(techTypeMIRuby, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.UraniniteCrystal, 10)
-},
+                {
+                    new IngredientHelper(TechType.UraniniteCrystal, _aMIUraninite)
+                },
                 _techType = techTypeMIUraninite
             };
             var techDataMIUraniniteB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMIUraninite,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIUraninite, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIUraninite, 1)
+                },
                 _techType = TechType.UraniniteCrystal
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.UraniniteCrystal);
@@ -489,21 +717,40 @@ new IngredientHelper(techTypeMIUraninite, 1)
             {
                 _craftAmount = 1,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(TechType.Quartz, 10)
-},
+                {
+                    new IngredientHelper(TechType.Quartz, _aMIQuartz)
+                },
                 _techType = techTypeMIQuartz
             };
             var techDataMIQuartzB = new TechDataHelper
             {
-                _craftAmount = 10,
+                _craftAmount = _aMIQuartz,
                 _ingredients = new List<IngredientHelper>()
-{
-new IngredientHelper(techTypeMIQuartz, 1)
-},
+                {
+                    new IngredientHelper(techTypeMIQuartz, 1)
+                },
                 _techType = TechType.Quartz
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Quartz);
+            var techDataMISalt = new TechDataHelper
+            {
+                _craftAmount = 1,
+                _ingredients = new List<IngredientHelper>()
+                {
+                    new IngredientHelper(TechType.Salt, _aMISalt)
+                },
+                _techType = techTypeMISalt
+            };
+            var techDataMISaltB = new TechDataHelper
+            {
+                _craftAmount = _aMISalt,
+                _ingredients = new List<IngredientHelper>()
+                {
+                    new IngredientHelper(techTypeMISalt, 1)
+                },
+                _techType = TechType.Salt
+            };
+            KnownTechPatcher.unlockedAtStart.Add(TechType.Salt);
             var spriteMIGold = assetBundle.LoadAsset<Sprite>("MIGold");
             var spriteMIDiamond = assetBundle.LoadAsset<Sprite>("MIDiamond");
             var spriteMILithium = assetBundle.LoadAsset<Sprite>("MILithium");
@@ -518,6 +765,7 @@ new IngredientHelper(techTypeMIQuartz, 1)
             var spriteMIQuartz = assetBundle.LoadAsset<Sprite>("MIQuartz");
             var spritetabcraft = assetBundle.LoadAsset<Sprite>("MIFabTabCraft");
             var spritetabunpack = assetBundle.LoadAsset<Sprite>("MIFabTabUnpack");
+            var SpriteSaltAlex = saltassetsalex.LoadAsset<Sprite>("Salt");
             var spriteMIGold2 = assetBundlealt.LoadAsset<Sprite>("IPGold");
             var spriteMIDiamond2 = assetBundlealt.LoadAsset<Sprite>("IPDiamond");
             var spriteMILithium2 = assetBundlealt.LoadAsset<Sprite>("IPLithium");
@@ -532,6 +780,7 @@ new IngredientHelper(techTypeMIQuartz, 1)
             var spriteMIQuartz2 = assetBundlealt.LoadAsset<Sprite>("IPQuartz");
             var spritetabcraft2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabCraft");
             var spritetabunpack2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabUnpack");
+            var SpriteSaltYenz = saltassetsyenz.LoadAsset<Sprite>("Salt");
             if (_alttextures == true)
             {
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold));
@@ -546,6 +795,7 @@ new IngredientHelper(techTypeMIQuartz, 1)
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIRuby, spriteMIRuby));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIUraninite, spriteMIUraninite));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIQuartz, spriteMIQuartz));
+                CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltAlex));
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft));
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack));
             }
@@ -563,6 +813,7 @@ new IngredientHelper(techTypeMIQuartz, 1)
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIRuby, spriteMIRuby2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIUraninite, spriteMIUraninite2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIQuartz, spriteMIQuartz2));
+                CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltYenz));
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft2));
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack2));
             }
@@ -578,6 +829,7 @@ new IngredientHelper(techTypeMIQuartz, 1)
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIRuby);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIUraninite);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIQuartz);
+            CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMISalt);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Gold);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Diamond);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Lithium);
@@ -590,6 +842,7 @@ new IngredientHelper(techTypeMIQuartz, 1)
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.AluminumOxide);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.UraniniteCrystal);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Quartz);
+            CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Salt);
             CraftDataPatcher.customTechData.Add(techTypeMIGold, techDataMIGold);
             CraftDataPatcher.customTechData.Add(TechType.Gold, techDataMIGoldB);
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIGold, CraftScheme.Fabricator, "Resources/Craft/MIGold"));
@@ -650,6 +903,11 @@ new IngredientHelper(techTypeMIQuartz, 1)
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIQuartz, CraftScheme.Fabricator, "Resources/Craft/MIQuartz"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Quartz, CraftScheme.Fabricator, "Resources/Unpack/Quartz"));
             CraftDataPatcher.customItemSizes[key: techTypeMIQuartz] = new Vector2int(x: _xMIQuartz, y: _yMIQuartz);
+            CraftDataPatcher.customTechData.Add(techTypeMISalt, techDataMISalt);
+            CraftDataPatcher.customTechData.Add(TechType.Salt, techDataMISaltB);
+            CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMISalt, CraftScheme.Fabricator, "Resources/Craft/MISalt"));
+            CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Salt, CraftScheme.Fabricator, "Resources/Unpack/Salt"));
+            CraftDataPatcher.customItemSizes[key: techTypeMISalt] = new Vector2int(x: _xMISalt, y: _yMISalt);
             CraftDataPatcher.customItemSizes[key: TechType.TitaniumIngot] = new Vector2int(x: _xTitaniumIngot, y: _yTitaniumIngot);
         }
     }
