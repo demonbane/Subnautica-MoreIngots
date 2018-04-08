@@ -100,15 +100,6 @@ namespace MoreIngots
             | Config.TryGet(ref _aMIUraninite, "Uraninite Ingot", "Craft amount")
             | Config.TryGet(ref _aMIQuartz, "Quartz Ingot", "Craft amount")
             | Config.TryGet(ref _aMISalt, "Salt Lick", "Craft amount");
-            /* if (_alttextures == false) { }
-            else if (_alttextures == true) { }
-            else
-            {
-                _alttextures = false;
-                Config["Alternative textures"] = _alttextures;
-                Utilites.Logger.Logger.Error("Alternative textures must be \"true\" or \"false\"", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
-                configChanged = true;
-            } */
             if (_xTitaniumIngot <= 0)
             {
                 _xTitaniumIngot = 1;
