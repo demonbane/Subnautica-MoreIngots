@@ -804,7 +804,8 @@ namespace MoreIngots
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIRuby, spriteMIRuby2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIUraninite, spriteMIUraninite2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIQuartz, spriteMIQuartz2));
-                CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltYenz));
+                CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltAlex));
+                //CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltYenz));
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft2));
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack2));
             }
