@@ -66,8 +66,7 @@ namespace MoreIngots
             Logger.Debug("Loading asset bundles... (2/4)", LogType.Console);
             var saltassetsalex = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-alexejheroytb.assets");
             Logger.Debug("Loading asset bundles... (3/4)", LogType.Console);
-            //var saltassetsyenz = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-yenzen.assets");
-            Logger.Info("Asset bundle \"salt-yenzen\" missing! We'll use \"salt-alexejheroytb\" for the missing assets. (This message is harmless)");
+            var saltassetsyenz = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-yenzen.assets");
             Logger.Debug("Loading asset bundles... (4/4)", LogType.Console);
             Logger.Debug("Asset bundles loaded", LogType.Console);
 
@@ -1009,9 +1008,7 @@ namespace MoreIngots
             var spriteMIQuartz2 = assetBundlealt.LoadAsset<Sprite>("IPQuartz");
             var spritetabcraft2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabCraft");
             var spritetabunpack2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabUnpack");
-            Logger.Debug("Loading sprites... (14/15)", LogType.Console);
-            //var SpriteSaltYenz = saltassetsyenz.LoadAsset<Sprite>("Salt");
-            Logger.Warning("Asset \"Salt\" from asset bundle \"salt-yenzen\" is missing. We'll use \"Salt\" from \"salt-alexejheroytb\" instead. (This message is harmless)");
+            var SpriteSaltYenz = saltassetsyenz.LoadAsset<Sprite>("Salt");
             Logger.Debug("Loading sprites... (15/15)", LogType.Console);
             Logger.Debug("Sprites loaded", LogType.Console);
 
@@ -1082,10 +1079,7 @@ namespace MoreIngots
                 Logger.Debug("Applying sprites... (10/13)", LogType.Console);
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIUraninite, spriteMIUraninite2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIQuartz, spriteMIQuartz2));
-                Logger.Debug("Applying sprites... (12/13)", LogType.Console);
-                CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltAlex));
-                //CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltYenz));
-                Logger.Warning("Applied sprite \"Salt\" from asset bundle \"salt-alexejheroytb\" instead of asset \"Salt\" from asset bundle \"salt-yenzen\" for techtype \"MISalt\" (This message is harmless)");
+                CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltYenz));
                 Logger.Debug("Applying sprites... (13/13)", LogType.Console);
                 Logger.Debug("Sprites applied", LogType.Console);
                 Logger.Debug("Loading fabricator tabs... (0/2)", LogType.Console);
