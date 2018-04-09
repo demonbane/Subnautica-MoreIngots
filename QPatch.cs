@@ -776,7 +776,6 @@ namespace MoreIngots
             //var SpriteSaltYenz = saltassetsyenz.LoadAsset<Sprite>("Salt");
             if (_alttextures == true)
             {
-                Logger.Info("_alttextures is true", LogType.Custom);
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIDiamond, spriteMIDiamond));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILithium, spriteMILithium));
@@ -795,7 +794,6 @@ namespace MoreIngots
             }
             else
             {
-                Logger.Info("_alttextures is false", LogType.Custom);
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIDiamond, spriteMIDiamond2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILithium, spriteMILithium2));
