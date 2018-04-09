@@ -3,6 +3,8 @@ using SMLHelper.Patchers;
 using System.Collections.Generic;
 using UnityEngine;
 using Utilites.Config;
+using Logger = Utilites.Logger.Logger;
+using LogType = Utilites.Logger.LogType;
 namespace MoreIngots
 {
     public class QPatch
@@ -55,7 +57,7 @@ namespace MoreIngots
             var assetBundle = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/moreingots.assets");
             var assetBundlealt = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/yenzen-ingotsplus.assets");
             var saltassetsalex = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-alexejheroytb.assets");
-            var saltassetsyenz = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-yenzen.assets");
+            //var saltassetsyenz = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-yenzen.assets");
             Config.Load();
             var configChanged =
             Config.TryGet(ref _alttextures, "Alternative textures")
@@ -104,378 +106,378 @@ namespace MoreIngots
             {
                 _xTitaniumIngot = 1;
                 Config["Titanium Ingot", "Size", "x"] = _xTitaniumIngot;
-                Utilites.Logger.Logger.Error("Size of Titanium Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Titanium Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yTitaniumIngot <= 0)
             {
                 _yTitaniumIngot = 1;
                 Config["Titanium Ingot", "Size", "y"] = _yTitaniumIngot;
-                Utilites.Logger.Logger.Error("Size of Titanium Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Titanium Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIGold <= 0)
             {
                 _xMIGold = 1;
                 Config["Gold Ingot", "Size", "x"] = _xMIGold;
-                Utilites.Logger.Logger.Error("Size of Gold Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Gold Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIGold <= 0)
             {
                 _yMIGold = 1;
                 Config["Gold Ingot", "Size", "y"] = _yMIGold;
-                Utilites.Logger.Logger.Error("Size of Gold Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Gold Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIDiamond <= 0)
             {
                 _xMIDiamond = 1;
                 Config["Diamond Ingot", "Size", "x"] = _xMIDiamond;
-                Utilites.Logger.Logger.Error("Size of Diamond Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Diamond Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIDiamond <= 0)
             {
                 _yMIDiamond = 1;
                 Config["Diamond Ingot", "Size", "y"] = _yMIDiamond;
-                Utilites.Logger.Logger.Error("Size of Diamond Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Diamond Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMILithium <= 0)
             {
                 _xMILithium = 1;
                 Config["Lithium Ingot", "Size", "x"] = _xMILithium;
-                Utilites.Logger.Logger.Error("Size of Lithium Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Lithium Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMILithium <= 0)
             {
                 _yMILithium = 1;
                 Config["Lithium Ingot", "Size", "y"] = _yMILithium;
-                Utilites.Logger.Logger.Error("Size of Lithium Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Lithium Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMICopper <= 0)
             {
                 _xMICopper = 1;
                 Config["Copper Ingot", "Size", "x"] = _xMICopper;
-                Utilites.Logger.Logger.Error("Size of Copper Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Copper Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMICopper <= 0)
             {
                 _yMICopper = 1;
                 Config["Copper Ingot", "Size", "y"] = _yMICopper;
-                Utilites.Logger.Logger.Error("Size of Copper Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Copper Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMILead <= 0)
             {
                 _xMILead = 1;
                 Config["Lead Ingot", "Size", "x"] = _xMILead;
-                Utilites.Logger.Logger.Error("Size of Lead Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Lead Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMILead <= 0)
             {
                 _yMILead = 1;
                 Config["Lead Ingot", "Size", "y"] = _yMILead;
-                Utilites.Logger.Logger.Error("Size of Lead Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Lead Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMISilver <= 0)
             {
                 _xMISilver = 1;
                 Config["Silver Ingot", "Size", "x"] = _xMISilver;
-                Utilites.Logger.Logger.Error("Size of Silver Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Silver Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMISilver <= 0)
             {
                 _yMISilver = 1;
                 Config["Silver Ingot", "Size", "y"] = _yMISilver;
-                Utilites.Logger.Logger.Error("Size of Silver Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Silver Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIMagnetite <= 0)
             {
                 _xMIMagnetite = 1;
                 Config["Magnetite Ingot", "Size", "x"] = _xMIMagnetite;
-                Utilites.Logger.Logger.Error("Size of Magnetite Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Magnetite Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIMagnetite <= 0)
             {
                 _yMIMagnetite = 1;
                 Config["Magnetite Ingot", "Size", "y"] = _yMIMagnetite;
-                Utilites.Logger.Logger.Error("Size of Magnetite Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Magnetite Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMINickel <= 0)
             {
                 _xMINickel = 1;
                 Config["Nickel Ingot", "Size", "x"] = _xMINickel;
-                Utilites.Logger.Logger.Error("Size of Nickel Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Nickel Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMINickel <= 0)
             {
                 _yMINickel = 1;
                 Config["Nickel Ingot", "Size", "y"] = _yMINickel;
-                Utilites.Logger.Logger.Error("Size of Nickel Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Nickel Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIKyanite <= 0)
             {
                 _xMIKyanite = 1;
                 Config["Kyanite Ingot", "Size", "x"] = _xMIKyanite;
-                Utilites.Logger.Logger.Error("Size of Kyanite Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Kyanite Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIKyanite <= 0)
             {
                 _yMIKyanite = 1;
                 Config["Kyanite Ingot", "Size", "y"] = _yMIKyanite;
-                Utilites.Logger.Logger.Error("Size of Kyanite Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Kyanite Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIRuby <= 0)
             {
                 _xMIRuby = 1;
                 Config["Ruby Ingot", "Size", "x"] = _xMIRuby;
-                Utilites.Logger.Logger.Error("Size of Ruby Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Ruby Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIRuby <= 0)
             {
                 _yMIRuby = 1;
                 Config["Ruby Ingot", "Size", "y"] = _yMIRuby;
-                Utilites.Logger.Logger.Error("Size of Ruby Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Ruby Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIUraninite <= 0)
             {
                 _xMIUraninite = 1;
                 Config["Uraninite Ingot", "Size", "x"] = _xMIUraninite;
-                Utilites.Logger.Logger.Error("Size of Uraninite Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Uraninite Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIUraninite <= 0)
             {
                 _yMIUraninite = 1;
                 Config["Uraninite Ingot", "Size", "y"] = _yMIUraninite;
-                Utilites.Logger.Logger.Error("Size of Uraninite Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Uraninite Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIQuartz <= 0)
             {
                 _xMIQuartz = 1;
                 Config["Quartz Ingot", "Size", "x"] = _xMIQuartz;
-                Utilites.Logger.Logger.Error("Size of Quartz Ingot can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Quartz Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIQuartz <= 0)
             {
                 _yMIQuartz = 1;
                 Config["Quartz Ingot", "Size", "y"] = _yMIQuartz;
-                Utilites.Logger.Logger.Error("Size of Quartz Ingot can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Quartz Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMISalt <= 0)
             {
                 _xMISalt = 1;
                 Config["Salt Lick", "Size", "x"] = _xMISalt;
-                Utilites.Logger.Logger.Error("Size of Salt Lick can't be less or equal to 0 X was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Salt Lick can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMISalt <= 0)
             {
                 _yMISalt = 1;
                 Config["Salt Lick", "Size", "y"] = _yMISalt;
-                Utilites.Logger.Logger.Error("Size of Salt Lick can't be less or equal to 0 Y was set to 1", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Size of Salt Lick can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIGold <= 0)
             {
                 _aMIGold = 10;
                 Config["Gold Ingot", "Craft amount"] = _aMIGold;
-                Utilites.Logger.Logger.Error("Craft amount of Gold Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Gold Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIGold > 10)
             {
                 _aMIGold = 10;
                 Config["Gold Ingot", "Craft amount"] = _aMIGold;
-                Utilites.Logger.Logger.Error("Craft amount of Gold Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Gold Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIDiamond <= 0)
             {
                 _aMIDiamond = 10;
                 Config["Diamond Ingot", "Craft amount"] = _aMIDiamond;
-                Utilites.Logger.Logger.Error("Craft amount of Diamond Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Diamond Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIDiamond > 10)
             {
                 _aMIDiamond = 10;
                 Config["Diamond Ingot", "Craft amount"] = _aMIDiamond;
-                Utilites.Logger.Logger.Error("Craft amount of Diamond Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Diamond Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMILithium <= 0)
             {
                 _aMILithium = 10;
                 Config["Lithium Ingot", "Craft amount"] = _aMILithium;
-                Utilites.Logger.Logger.Error("Craft amount of Lithium Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Lithium Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMILithium > 10)
             {
                 _aMILithium = 10;
                 Config["Lithium Ingot", "Craft amount"] = _aMILithium;
-                Utilites.Logger.Logger.Error("Craft amount of Lithium Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Lithium Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMICopper <= 0)
             {
                 _aMICopper = 10;
                 Config["Copper Ingot", "Craft amount"] = _aMICopper;
-                Utilites.Logger.Logger.Error("Craft amount of Copper Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Copper Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMICopper > 10)
             {
                 _aMICopper = 10;
                 Config["Copper Ingot", "Craft amount"] = _aMICopper;
-                Utilites.Logger.Logger.Error("Craft amount of Copper Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Copper Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMILead <= 0)
             {
                 _aMILead = 10;
                 Config["Lead Ingot", "Craft amount"] = _aMILead;
-                Utilites.Logger.Logger.Error("Craft amount of Lead Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Lead Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMILead > 10)
             {
                 _aMILead = 10;
                 Config["Lead Ingot", "Craft amount"] = _aMILead;
-                Utilites.Logger.Logger.Error("Craft amount of Lead Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Lead Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMISilver <= 0)
             {
                 _aMISilver = 10;
                 Config["Silver Ingot", "Craft amount"] = _aMISilver;
-                Utilites.Logger.Logger.Error("Craft amount of Silver Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Silver Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMISilver > 10)
             {
                 _aMISilver = 10;
                 Config["Silver Ingot", "Craft amount"] = _aMISilver;
-                Utilites.Logger.Logger.Error("Craft amount of Silver Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Silver Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIMagnetite <= 0)
             {
                 _aMIMagnetite = 10;
                 Config["Magnetite Ingot", "Craft amount"] = _aMIMagnetite;
-                Utilites.Logger.Logger.Error("Craft amount of Magnetite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Magnetite Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIMagnetite > 10)
             {
                 _aMIMagnetite = 10;
                 Config["Magnetite Ingot", "Craft amount"] = _aMIMagnetite;
-                Utilites.Logger.Logger.Error("Craft amount of Magnetite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Magnetite Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMINickel <= 0)
             {
                 _aMINickel = 10;
                 Config["Nickel Ingot", "Craft amount"] = _aMINickel;
-                Utilites.Logger.Logger.Error("Craft amount of Nickel Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Nickel Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMINickel > 10)
             {
                 _aMINickel = 10;
                 Config["Nickel Ingot", "Craft amount"] = _aMINickel;
-                Utilites.Logger.Logger.Error("Craft amount of Nickel Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Nickel Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIKyanite <= 0)
             {
                 _aMIKyanite = 10;
                 Config["Kyanite Ingot", "Craft amount"] = _aMIKyanite;
-                Utilites.Logger.Logger.Error("Craft amount of Kyanite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Kyanite Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIKyanite > 10)
             {
                 _aMIKyanite = 10;
                 Config["Kyanite Ingot", "Craft amount"] = _aMIKyanite;
-                Utilites.Logger.Logger.Error("Craft amount of Kyanite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Kyanite Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIRuby <= 0)
             {
                 _aMIRuby = 10;
                 Config["Ruby Ingot", "Craft amount"] = _aMIRuby;
-                Utilites.Logger.Logger.Error("Craft amount of Ruby Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Ruby Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIRuby > 10)
             {
                 _aMIRuby = 10;
                 Config["Ruby Ingot", "Craft amount"] = _aMIRuby;
-                Utilites.Logger.Logger.Error("Craft amount of Ruby Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Ruby Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIUraninite <= 0)
             {
                 _aMIUraninite = 10;
                 Config["Uraninite Ingot", "Craft amount"] = _aMIUraninite;
-                Utilites.Logger.Logger.Error("Craft amount of Uraninite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Uraninite Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIUraninite > 10)
             {
                 _aMIUraninite = 10;
                 Config["Uraninite Ingot", "Craft amount"] = _aMIUraninite;
-                Utilites.Logger.Logger.Error("Craft amount of Uraninite Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Uraninite Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIQuartz <= 0)
             {
                 _aMIQuartz = 10;
                 Config["Quartz Ingot", "Craft amount"] = _aMIQuartz;
-                Utilites.Logger.Logger.Error("Craft amount of Quartz Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Quartz Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIQuartz > 10)
             {
                 _aMIQuartz = 10;
                 Config["Quartz Ingot", "Craft amount"] = _aMIQuartz;
-                Utilites.Logger.Logger.Error("Craft amount of Quartz Ingot can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Quartz Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMISalt <= 0)
             {
                 _aMISalt = 10;
                 Config["Salt Lick", "Craft amount"] = _aMISalt;
-                Utilites.Logger.Logger.Error("Craft amount of Salt Lick can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Salt Lick can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMISalt > 10)
             {
                 _aMISalt = 10;
                 Config["Salt Lick", "Craft amount"] = _aMISalt;
-                Utilites.Logger.Logger.Error("Craft amount of Salt Lick can't be less than 1 or more than 10. It was set to 10", Utilites.Logger.LogType.Custom | Utilites.Logger.LogType.Console);
+                Logger.Error("Craft amount of Salt Lick can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (configChanged)
@@ -771,9 +773,10 @@ namespace MoreIngots
             var spriteMIQuartz2 = assetBundlealt.LoadAsset<Sprite>("IPQuartz");
             var spritetabcraft2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabCraft");
             var spritetabunpack2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabUnpack");
-            var SpriteSaltYenz = saltassetsyenz.LoadAsset<Sprite>("Salt");
+            //var SpriteSaltYenz = saltassetsyenz.LoadAsset<Sprite>("Salt");
             if (_alttextures == true)
             {
+                Logger.Info("_alttextures is true", LogType.Custom);
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIDiamond, spriteMIDiamond));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILithium, spriteMILithium));
@@ -792,6 +795,7 @@ namespace MoreIngots
             }
             else
             {
+                Logger.Info("_alttextures is false", LogType.Custom);
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIDiamond, spriteMIDiamond2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILithium, spriteMILithium2));
