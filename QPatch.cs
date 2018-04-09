@@ -106,196 +106,392 @@ namespace MoreIngots
             {
                 _xTitaniumIngot = 1;
                 Config["Titanium Ingot", "Size", "x"] = _xTitaniumIngot;
-                Logger.Error("Size of Titanium Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Titanium Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xTitaniumIngot > 6)
+            {
+                _xTitaniumIngot = 1;
+                Config["Titanium Ingot", "Size", "x"] = _xTitaniumIngot;
+                Logger.Error("Size of Titanium Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yTitaniumIngot <= 0)
             {
                 _yTitaniumIngot = 1;
                 Config["Titanium Ingot", "Size", "y"] = _yTitaniumIngot;
-                Logger.Error("Size of Titanium Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Titanium Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yTitaniumIngot > 8)
+            {
+                _yTitaniumIngot = 1;
+                Config["Titanium Ingot", "Size", "y"] = _yTitaniumIngot;
+                Logger.Error("Size of Titanium Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIGold <= 0)
             {
                 _xMIGold = 1;
                 Config["Gold Ingot", "Size", "x"] = _xMIGold;
-                Logger.Error("Size of Gold Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Gold Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMIGold > 6)
+            {
+                _xMIGold = 1;
+                Config["Gold Ingot", "Size", "x"] = _xMIGold;
+                Logger.Error("Size of Gold Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIGold <= 0)
             {
                 _yMIGold = 1;
                 Config["Gold Ingot", "Size", "y"] = _yMIGold;
-                Logger.Error("Size of Gold Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Gold Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMIGold > 8)
+            {
+                _yMIGold = 1;
+                Config["Gold Ingot", "Size", "y"] = _yMIGold;
+                Logger.Error("Size of Gold Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIDiamond <= 0)
             {
                 _xMIDiamond = 1;
                 Config["Diamond Ingot", "Size", "x"] = _xMIDiamond;
-                Logger.Error("Size of Diamond Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Diamond Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMIDiamond > 6)
+            {
+                _xMIDiamond = 1;
+                Config["Diamond Ingot", "Size", "x"] = _xMIDiamond;
+                Logger.Error("Size of Diamond Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIDiamond <= 0)
             {
                 _yMIDiamond = 1;
                 Config["Diamond Ingot", "Size", "y"] = _yMIDiamond;
-                Logger.Error("Size of Diamond Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Diamond Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMIDiamond > 8)
+            {
+                _yMIDiamond = 1;
+                Config["Diamond Ingot", "Size", "y"] = _yMIDiamond;
+                Logger.Error("Size of Diamond Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMILithium <= 0)
             {
                 _xMILithium = 1;
                 Config["Lithium Ingot", "Size", "x"] = _xMILithium;
-                Logger.Error("Size of Lithium Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Lithium Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMILithium > 6)
+            {
+                _xMILithium = 1;
+                Config["Lithium Ingot", "Size", "x"] = _xMILithium;
+                Logger.Error("Size of Lithium Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMILithium <= 0)
             {
                 _yMILithium = 1;
                 Config["Lithium Ingot", "Size", "y"] = _yMILithium;
-                Logger.Error("Size of Lithium Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Lithium Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMILithium > 8)
+            {
+                _yMILithium = 1;
+                Config["Lithium Ingot", "Size", "y"] = _yMILithium;
+                Logger.Error("Size of Lithium Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMICopper <= 0)
             {
                 _xMICopper = 1;
                 Config["Copper Ingot", "Size", "x"] = _xMICopper;
-                Logger.Error("Size of Copper Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Copper Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMICopper > 6)
+            {
+                _xMICopper = 1;
+                Config["Copper Ingot", "Size", "x"] = _xMICopper;
+                Logger.Error("Size of Copper Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMICopper <= 0)
             {
                 _yMICopper = 1;
                 Config["Copper Ingot", "Size", "y"] = _yMICopper;
-                Logger.Error("Size of Copper Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Copper Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMICopper > 8)
+            {
+                _yMICopper = 1;
+                Config["Copper Ingot", "Size", "y"] = _yMICopper;
+                Logger.Error("Size of Copper Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMILead <= 0)
             {
                 _xMILead = 1;
                 Config["Lead Ingot", "Size", "x"] = _xMILead;
-                Logger.Error("Size of Lead Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Lead Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMILead > 6)
+            {
+                _xMILead = 1;
+                Config["Lead Ingot", "Size", "x"] = _xMILead;
+                Logger.Error("Size of Lead Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMILead <= 0)
             {
                 _yMILead = 1;
                 Config["Lead Ingot", "Size", "y"] = _yMILead;
-                Logger.Error("Size of Lead Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Lead Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMILead > 8)
+            {
+                _yMILead = 1;
+                Config["Lead Ingot", "Size", "y"] = _yMILead;
+                Logger.Error("Size of Lead Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMISilver <= 0)
             {
                 _xMISilver = 1;
                 Config["Silver Ingot", "Size", "x"] = _xMISilver;
-                Logger.Error("Size of Silver Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Silver Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMISilver > 6)
+            {
+                _xMISilver = 1;
+                Config["Silver Ingot", "Size", "x"] = _xMISilver;
+                Logger.Error("Size of Silver Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMISilver <= 0)
             {
                 _yMISilver = 1;
                 Config["Silver Ingot", "Size", "y"] = _yMISilver;
-                Logger.Error("Size of Silver Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Silver Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMISilver > 8)
+            {
+                _yMISilver = 1;
+                Config["Silver Ingot", "Size", "y"] = _yMISilver;
+                Logger.Error("Size of Silver Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIMagnetite <= 0)
             {
                 _xMIMagnetite = 1;
                 Config["Magnetite Ingot", "Size", "x"] = _xMIMagnetite;
-                Logger.Error("Size of Magnetite Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Magnetite Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMIMagnetite > 6)
+            {
+                _xMIMagnetite = 1;
+                Config["Magnetite Ingot", "Size", "x"] = _xMIMagnetite;
+                Logger.Error("Size of Magnetite Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIMagnetite <= 0)
             {
                 _yMIMagnetite = 1;
                 Config["Magnetite Ingot", "Size", "y"] = _yMIMagnetite;
-                Logger.Error("Size of Magnetite Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Magnetite Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMIMagnetite > 8)
+            {
+                _yMIMagnetite = 1;
+                Config["Magnetite Ingot", "Size", "y"] = _yMIMagnetite;
+                Logger.Error("Size of Magnetite Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMINickel <= 0)
             {
                 _xMINickel = 1;
                 Config["Nickel Ingot", "Size", "x"] = _xMINickel;
-                Logger.Error("Size of Nickel Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Nickel Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMINickel > 6)
+            {
+                _xMINickel = 1;
+                Config["Nickel Ingot", "Size", "x"] = _xMINickel;
+                Logger.Error("Size of Nickel Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMINickel <= 0)
             {
                 _yMINickel = 1;
                 Config["Nickel Ingot", "Size", "y"] = _yMINickel;
-                Logger.Error("Size of Nickel Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Nickel Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMINickel > 8)
+            {
+                _yMINickel = 1;
+                Config["Nickel Ingot", "Size", "y"] = _yMINickel;
+                Logger.Error("Size of Nickel Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIKyanite <= 0)
             {
                 _xMIKyanite = 1;
                 Config["Kyanite Ingot", "Size", "x"] = _xMIKyanite;
-                Logger.Error("Size of Kyanite Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Kyanite Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMIKyanite > 6)
+            {
+                _xMIKyanite = 1;
+                Config["Kyanite Ingot", "Size", "x"] = _xMIKyanite;
+                Logger.Error("Size of Kyanite Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIKyanite <= 0)
             {
                 _yMIKyanite = 1;
                 Config["Kyanite Ingot", "Size", "y"] = _yMIKyanite;
-                Logger.Error("Size of Kyanite Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Kyanite Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMIKyanite > 8)
+            {
+                _yMIKyanite = 1;
+                Config["Kyanite Ingot", "Size", "y"] = _yMIKyanite;
+                Logger.Error("Size of Kyanite Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIRuby <= 0)
             {
                 _xMIRuby = 1;
                 Config["Ruby Ingot", "Size", "x"] = _xMIRuby;
-                Logger.Error("Size of Ruby Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Ruby Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMIRuby > 6)
+            {
+                _xMIRuby = 1;
+                Config["Ruby Ingot", "Size", "x"] = _xMIRuby;
+                Logger.Error("Size of Ruby Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIRuby <= 0)
             {
                 _yMIRuby = 1;
                 Config["Ruby Ingot", "Size", "y"] = _yMIRuby;
-                Logger.Error("Size of Ruby Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Ruby Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMIRuby > 8)
+            {
+                _yMIRuby = 1;
+                Config["Ruby Ingot", "Size", "y"] = _yMIRuby;
+                Logger.Error("Size of Ruby Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIUraninite <= 0)
             {
                 _xMIUraninite = 1;
                 Config["Uraninite Ingot", "Size", "x"] = _xMIUraninite;
-                Logger.Error("Size of Uraninite Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Uraninite Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMIUraninite > 6)
+            {
+                _xMIUraninite = 1;
+                Config["Uraninite Ingot", "Size", "x"] = _xMIUraninite;
+                Logger.Error("Size of Uraninite Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIUraninite <= 0)
             {
                 _yMIUraninite = 1;
                 Config["Uraninite Ingot", "Size", "y"] = _yMIUraninite;
-                Logger.Error("Size of Uraninite Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Uraninite Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMIUraninite > 8)
+            {
+                _yMIUraninite = 1;
+                Config["Uraninite Ingot", "Size", "y"] = _yMIUraninite;
+                Logger.Error("Size of Uraninite Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMIQuartz <= 0)
             {
                 _xMIQuartz = 1;
                 Config["Quartz Ingot", "Size", "x"] = _xMIQuartz;
-                Logger.Error("Size of Quartz Ingot can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Quartz Ingot can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMIQuartz > 6)
+            {
+                _xMIQuartz = 1;
+                Config["Quartz Ingot", "Size", "x"] = _xMIQuartz;
+                Logger.Error("Size of Quartz Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMIQuartz <= 0)
             {
                 _yMIQuartz = 1;
                 Config["Quartz Ingot", "Size", "y"] = _yMIQuartz;
-                Logger.Error("Size of Quartz Ingot can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Quartz Ingot can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMIQuartz > 8)
+            {
+                _yMIQuartz = 1;
+                Config["Quartz Ingot", "Size", "y"] = _yMIQuartz;
+                Logger.Error("Size of Quartz Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_xMISalt <= 0)
             {
                 _xMISalt = 1;
                 Config["Salt Lick", "Size", "x"] = _xMISalt;
-                Logger.Error("Size of Salt Lick can't be less or equal to 0 X was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Salt Lick can't be less or equal to 0. X was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_xMISalt > 6)
+            {
+                _xMISalt = 1;
+                Config["Salt Lick", "Size", "x"] = _xMISalt;
+                Logger.Error("Size of Salt Lick can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_yMISalt <= 0)
             {
                 _yMISalt = 1;
                 Config["Salt Lick", "Size", "y"] = _yMISalt;
-                Logger.Error("Size of Salt Lick can't be less or equal to 0 Y was set to 1", LogType.Custom | LogType.Console);
+                Logger.Error("Size of Salt Lick can't be less or equal to 0. Y was set to 1", LogType.Custom | LogType.Console);
+                configChanged = true;
+            }
+            if (_yMISalt > 8)
+            {
+                _yMISalt = 1;
+                Config["Salt Lick", "Size", "y"] = _yMISalt;
+                Logger.Error("Size of Salt Lick can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
             if (_aMIGold <= 0)
