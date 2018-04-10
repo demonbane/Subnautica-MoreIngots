@@ -36,7 +36,7 @@ namespace MoreIngots
                 LoadItem.Load("MICopper", "Copper Ingot", "Cu. Compressed copper. Added by the MoreIngots mod", TechType.Copper, "Copper", "MICopper", "IPCopper");
                 LoadItem.Load("MILead", "Lead Ingot", "Pb. Compressed lead. Added by the MoreIngots mod", TechType.Lead, "Lead", "MILead", "IPLead");
                 LoadItem.Load("MISilver", "Silver Ingot", "Ag. Compressed silver. Added by the MoreIngots mod", TechType.Silver, "Silver", "MISilver", "IPSilver");
-                LoadItem.Load("MIMagnetite", "Compressed Magnetite", "Fe3O4. Compressed magnetite. Added by the MoreIngots mod", TechType.Magnetite, "Silver", "MISilver", "IPSilver");
+                LoadItem.Load("MIMagnetite", "Compressed Magnetite", "Fe3O4. Compressed magnetite. Added by the MoreIngots mod", TechType.Magnetite, "Magnetite", "MIMagnetite", "IPMagnetite");
                 LoadItem.Load("MINickel", "Nickel Ingot", "Ni. Compressed nickel. Added by the MoreIngots mod", TechType.Nickel, "Nickel", "MINickel", "IPNickel");
                 LoadItem.Load("MIKyanite", "Compressed Kyanite", "Al2SiO5. Compressed kyanite. Added by the MoreIngots mod", TechType.Kyanite, "Kyanite", "MIKyanite", "IPKyanite");
                 LoadItem.Load("MIRuby", "Compressed Ruby", "Al2O3. Compressed ruby. Added by the MoreIngots mod", TechType.AluminumOxide, "AluminiumOxide", "MIRuby", "IPRuby");
