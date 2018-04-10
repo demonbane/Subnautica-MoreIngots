@@ -24,6 +24,7 @@ namespace MoreIngots
         {
             try
             {
+                Log.Info("Started loading");
                 Logger.ClearCustomLog();
                 Cfg.Load();
                 LoadAssetBundles.Load();
@@ -42,6 +43,7 @@ namespace MoreIngots
                 LoadItem.Load("MIUraninite", "Compressed Uraninite", "U3O8. Compressed uraninite. Added by the MoreIngots mod", TechType.UraniniteCrystal, "UraniniteCrystal", "MIUraninite", "IPUraninite");
                 LoadItem.Load("MIQuartz", "Compressed Quartz", "SiO4. Compressed quartz. Added by the MoreIngots mod", TechType.Quartz, "Quartz", "MIQuartz", "IPQuartz");
                 LoadItem.Load("MISalt", "Salt Lick", "NaCl. Salt. Added by the MoreIngots mod. (Suggested by Oddwood)", TechType.Salt, "Salt", "Salt", "Salt", InAssetBundles.Salt);
+                Log.Info("Finished loading");
             }
             catch (Exception e)
             {
