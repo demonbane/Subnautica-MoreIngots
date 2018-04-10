@@ -13,6 +13,7 @@ namespace MoreIngots
         private static readonly ConfigFile Config = new ConfigFile("config");
 
         private static bool _alttextures = false;
+        public static bool _debug = false;
 
         private static int _xTitaniumIngot = 1;
         private static int _yTitaniumIngot = 1;
@@ -56,27 +57,29 @@ namespace MoreIngots
         private static int _aMIUraninite = 10;
         private static int _aMIQuartz = 10;
         private static int _aMISalt = 10;
+
         public static void Patch()
         {
-            Logger.Debug("Started loading", LogType.Console);
-            Logger.Debug("Loading asset bundles... (0/4)", LogType.Console);
+            MI.Log.Debug("Started loading");
+            MI.Log.Debug("Loading asset bundles... (0/4)");
             var assetBundle = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/moreingots.assets");
-            Logger.Debug("Loading asset bundles... (1/4)", LogType.Console);
+            MI.Log.Debug("Loading asset bundles... (1/4)");
             var assetBundlealt = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/yenzen-ingotsplus.assets");
-            Logger.Debug("Loading asset bundles... (2/4)", LogType.Console);
+            MI.Log.Debug("Loading asset bundles... (2/4)");
             var saltassetsalex = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-alexejheroytb.assets");
-            Logger.Debug("Loading asset bundles... (3/4)", LogType.Console);
+            MI.Log.Debug("Loading asset bundles... (3/4)");
             var saltassetsyenz = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-yenzen.assets");
-            Logger.Debug("Loading asset bundles... (4/4)", LogType.Console);
-            Logger.Debug("Asset bundles loaded", LogType.Console);
+            MI.Log.Debug("Loading asset bundles... (4/4)");
+            MI.Log.Debug("Asset bundles loaded");
 
-            Logger.Debug("Loading config...", LogType.Console);
+            MI.Log.Debug("Loading config...");
             Config.Load();
-            Logger.Debug("Config loaded", LogType.Console);
+            MI.Log.Debug("Config loaded");
 
-            Logger.Debug("Obtaining config data...", LogType.Console);
+            MI.Log.Debug("Obtaining config data...");
             var configChanged =
             Config.TryGet(ref _alttextures, "Alternative textures")
+            | Config.TryGet(ref _debug, "Enable debugging")
             | Config.TryGet(ref _xTitaniumIngot, "Titanium Ingot", "Size", "x")
             | Config.TryGet(ref _yTitaniumIngot, "Titanium Ingot", "Size", "y")
             | Config.TryGet(ref _xMIGold, "Gold Ingot", "Size", "x")
@@ -118,9 +121,9 @@ namespace MoreIngots
             | Config.TryGet(ref _aMIUraninite, "Uraninite Ingot", "Craft amount")
             | Config.TryGet(ref _aMIQuartz, "Quartz Ingot", "Craft amount")
             | Config.TryGet(ref _aMISalt, "Salt Lick", "Craft amount");
-            Logger.Debug("Config data obtained", LogType.Console);
+            MI.Log.Debug("Config data obtained");
 
-            Logger.Debug("Checking config for errors... (0/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (0/82)");
             if (_xTitaniumIngot <= 0)
             {
                 _xTitaniumIngot = 1;
@@ -191,7 +194,7 @@ namespace MoreIngots
                 Logger.Warning("Size of Diamond Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (10/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (10/82)");
             if (_yMIDiamond <= 0)
             {
                 _yMIDiamond = 1;
@@ -262,7 +265,7 @@ namespace MoreIngots
                 Logger.Warning("Size of Copper Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (20/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (20/82)");
             if (_xMILead <= 0)
             {
                 _xMILead = 1;
@@ -333,7 +336,7 @@ namespace MoreIngots
                 Logger.Warning("Size of Magnetite Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (30/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (30/82)");
             if (_yMIMagnetite <= 0)
             {
                 _yMIMagnetite = 1;
@@ -404,7 +407,7 @@ namespace MoreIngots
                 Logger.Warning("Size of Kyanite Ingot can't be greater than 8. Y was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (40/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (40/82)");
             if (_xMIRuby <= 0)
             {
                 _xMIRuby = 1;
@@ -475,7 +478,7 @@ namespace MoreIngots
                 Logger.Warning("Size of Quartz Ingot can't be greater than 6. X was set to 1", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (50/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (50/82)");
             if (_yMIQuartz <= 0)
             {
                 _yMIQuartz = 1;
@@ -546,7 +549,7 @@ namespace MoreIngots
                 Logger.Warning("Craft amount of Diamond Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (60/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (60/82)");
             if (_aMILithium <= 0)
             {
                 _aMILithium = 10;
@@ -617,7 +620,7 @@ namespace MoreIngots
                 Logger.Warning("Craft amount of Magnetite Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (70/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (70/82)");
             if (_aMINickel <= 0)
             {
                 _aMINickel = 10;
@@ -688,7 +691,7 @@ namespace MoreIngots
                 Logger.Warning("Craft amount of Quartz Ingot can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (80/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (80/82)");
             if (_aMISalt <= 0)
             {
                 _aMISalt = 10;
@@ -703,39 +706,39 @@ namespace MoreIngots
                 Logger.Warning("Craft amount of Salt Lick can't be less than 1 or more than 10. It was set to 10", LogType.Custom | LogType.Console);
                 configChanged = true;
             }
-            Logger.Debug("Checking config for errors... (82/82)", LogType.Console);
+            MI.Log.Debug("Checking config for errors... (82/82)");
             if (configChanged)
             {
-                Logger.Debug("Error check complete. Some errors found and fixed", LogType.Console);
-                Logger.Debug("Saving config...", LogType.Console);
+                MI.Log.Debug("Error check complete. Some errors found and fixed");
+                MI.Log.Debug("Saving config...");
                 Config.Save();
-                Logger.Debug("Config saved...", LogType.Console);
+                MI.Log.Debug("Config saved...");
             }
             else
             {
-                Logger.Debug("Error check complete. No errors found", LogType.Console);
+                MI.Log.Debug("Error check complete. No errors found");
             }
 
-            Logger.Debug("Loading TechTypes... (0/13)", LogType.Console);
+            MI.Log.Debug("Loading TechTypes... (0/13)");
             var techTypeMIGold = TechTypePatcher.AddTechType("MIGold", "Gold Ingot", "Au. Condensed gold. Added by MoreIngots mod. ");
             var techTypeMIDiamond = TechTypePatcher.AddTechType("MIDiamond", "Compressed Diamond", "C. Condensed diamond. Added by MoreIngots mod");
             var techTypeMILithium = TechTypePatcher.AddTechType("MILithium", "Lithium Ingot", "Li. Condensed lithium. Added by MoreIngots mod");
             var techTypeMICopper = TechTypePatcher.AddTechType("MICopper", "Copper Ingot", "Cu. Condensed copper. Added by MoreIngots mod");
             var techTypeMILead = TechTypePatcher.AddTechType("MILead", "Lead Ingot", "Pb. Condensed lead. Added by MoreIngots mod");
-            Logger.Debug("Loading TechTypes... (5/13)", LogType.Console);
+            MI.Log.Debug("Loading TechTypes... (5/13)");
             var techTypeMISilver = TechTypePatcher.AddTechType("MISilver", "Silver Ingot", "Ag. Condensed silver. Added by MoreIngots mod");
             var techTypeMIMagnetite = TechTypePatcher.AddTechType("MIMagnetite", "Magnetite Ingot", "γ-Fe2O3. Condensed magnetite. Added by MoreIngots mod");
             var techTypeMINickel = TechTypePatcher.AddTechType("MINickel", "Nickel Ingot", "Ni. Condensed nickel. Added by MoreIngots mod");
             var techTypeMIKyanite = TechTypePatcher.AddTechType("MIKyanite", "Kyanite Ingot", "Al2(F,OH)2SiO4. Condensed kyanite. Added by MoreIngots mod");
             var techTypeMIRuby = TechTypePatcher.AddTechType("MIRuby", "Ruby Ingot", "Al(OH)3. Condensed ruby. Added by MoreIngots mod");
-            Logger.Debug("Loading TechTypes... (10/13)", LogType.Console);
+            MI.Log.Debug("Loading TechTypes... (10/13)");
             var techTypeMIUraninite = TechTypePatcher.AddTechType("MIUraninite", "Uraninite Ingot", "U3O8. Condensed uraninite. Added by MoreIngots mod");
             var techTypeMIQuartz = TechTypePatcher.AddTechType("MIQuartz", "Compressed Quartz", "SiO4. Condensed quartz. Added by MoreIngots mod");
             var techTypeMISalt = TechTypePatcher.AddTechType("MISalt", "Salt Lick", "NaCl. Salt. Added by MoreIngtos mod");
-            Logger.Debug("Loading TechTypes... (13/13)", LogType.Console);
-            Logger.Debug("TechTypes loaded", LogType.Console);
+            MI.Log.Debug("Loading TechTypes... (13/13)");
+            MI.Log.Debug("TechTypes loaded");
 
-            Logger.Debug("Loading TechDatas... (0/26)", LogType.Console);
+            MI.Log.Debug("Loading TechDatas... (0/26)");
             var techDataMIGold = new TechDataHelper
             {
                 _craftAmount = 1,
@@ -783,7 +786,7 @@ namespace MoreIngots
                 },
                 _techType = techTypeMILithium
             };
-            Logger.Debug("Loading TechDatas... (5/26)", LogType.Console);
+            MI.Log.Debug("Loading TechDatas... (5/26)");
             var techDataMILithiumB = new TechDataHelper
             {
                 _craftAmount = _aMILithium,
@@ -831,7 +834,7 @@ namespace MoreIngots
                 },
                 _techType = TechType.Lead
             };
-            Logger.Debug("Loading TechDatas... (10/26)", LogType.Console);
+            MI.Log.Debug("Loading TechDatas... (10/26)");
             KnownTechPatcher.unlockedAtStart.Add(TechType.Lead);
             var techDataMISilver = new TechDataHelper
             {
@@ -880,7 +883,7 @@ namespace MoreIngots
                 },
                 _techType = techTypeMINickel
             };
-            Logger.Debug("Loading TechDatas... (15/26)", LogType.Console);
+            MI.Log.Debug("Loading TechDatas... (15/26)");
             var techDataMINickelB = new TechDataHelper
             {
                 _craftAmount = _aMINickel,
@@ -928,7 +931,7 @@ namespace MoreIngots
                 },
                 _techType = TechType.AluminumOxide
             };
-            Logger.Debug("Loading TechDatas... (20/26)", LogType.Console);
+            MI.Log.Debug("Loading TechDatas... (20/26)");
             KnownTechPatcher.unlockedAtStart.Add(TechType.AluminumOxide);
             var techDataMIUraninite = new TechDataHelper
             {
@@ -977,7 +980,7 @@ namespace MoreIngots
                 },
                 _techType = techTypeMISalt
             };
-            Logger.Debug("Loading TechDatas... (25/26)", LogType.Console);
+            MI.Log.Debug("Loading TechDatas... (25/26)");
             var techDataMISaltB = new TechDataHelper
             {
                 _craftAmount = _aMISalt,
@@ -988,233 +991,233 @@ namespace MoreIngots
                 _techType = TechType.Salt
             };
             KnownTechPatcher.unlockedAtStart.Add(TechType.Salt);
-            Logger.Debug("Loading TechDatas... (26/26)", LogType.Console);
-            Logger.Debug("TechDatas loaded", LogType.Console);
+            MI.Log.Debug("Loading TechDatas... (26/26)");
+            MI.Log.Debug("TechDatas loaded");
 
-            Logger.Debug("Loading sprites... (0/15)", LogType.Console);
+            MI.Log.Debug("Loading sprites... (0/15)");
             var spriteMIGold2 = assetBundlealt.LoadAsset<Sprite>("IPGold");
             var spriteMIDiamond2 = assetBundlealt.LoadAsset<Sprite>("IPDiamond");
             var spriteMILithium2 = assetBundlealt.LoadAsset<Sprite>("IPLithium");
             var spriteMICopper2 = assetBundlealt.LoadAsset<Sprite>("IPCopper");
             var spriteMILead2 = assetBundlealt.LoadAsset<Sprite>("IPLead");
-            Logger.Debug("Loading sprites... (5/15)", LogType.Console);
+            MI.Log.Debug("Loading sprites... (5/15)");
             var spriteMISilver2 = assetBundlealt.LoadAsset<Sprite>("IPSilver");
             var spriteMIMagnetite2 = assetBundlealt.LoadAsset<Sprite>("IPMagnetite");
             var spriteMINickel2 = assetBundlealt.LoadAsset<Sprite>("IPNickel");
             var spriteMIKyanite2 = assetBundlealt.LoadAsset<Sprite>("IPKyanite");
             var spriteMIRuby2 = assetBundlealt.LoadAsset<Sprite>("IPRuby");
-            Logger.Debug("Loading sprites... (10/15)", LogType.Console);
+            MI.Log.Debug("Loading sprites... (10/15)");
             var spriteMIUraninite2 = assetBundlealt.LoadAsset<Sprite>("IPUraninite");
             var spriteMIQuartz2 = assetBundlealt.LoadAsset<Sprite>("IPQuartz");
             var spritetabcraft2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabCraft");
             var spritetabunpack2 = assetBundlealt.LoadAsset<Sprite>("IPFabTabUnpack");
             var SpriteSaltYenz = saltassetsyenz.LoadAsset<Sprite>("Salt");
-            Logger.Debug("Loading sprites... (15/15)", LogType.Console);
-            Logger.Debug("Sprites loaded", LogType.Console);
+            MI.Log.Debug("Loading sprites... (15/15)");
+            MI.Log.Debug("Sprites loaded");
 
-            Logger.Debug("Loading alternative sprites... (0/15)", LogType.Console);
+            MI.Log.Debug("Loading alternative sprites... (0/15)");
             var spriteMIGold = assetBundle.LoadAsset<Sprite>("MIGold");
             var spriteMIDiamond = assetBundle.LoadAsset<Sprite>("MIDiamond");
             var spriteMILithium = assetBundle.LoadAsset<Sprite>("MILithium");
             var spriteMICopper = assetBundle.LoadAsset<Sprite>("MICopper");
             var spriteMILead = assetBundle.LoadAsset<Sprite>("MILead");
-            Logger.Debug("Loading alternative sprites... (5/15)", LogType.Console);
+            MI.Log.Debug("Loading alternative sprites... (5/15)");
             var spriteMISilver = assetBundle.LoadAsset<Sprite>("MISilver");
             var spriteMIMagnetite = assetBundle.LoadAsset<Sprite>("MIMagnetite");
             var spriteMINickel = assetBundle.LoadAsset<Sprite>("MINickel");
             var spriteMIKyanite = assetBundle.LoadAsset<Sprite>("MIKyanite");
             var spriteMIRuby = assetBundle.LoadAsset<Sprite>("MIRuby");
-            Logger.Debug("Loading alternative sprites... (10/15)", LogType.Console);
+            MI.Log.Debug("Loading alternative sprites... (10/15)");
             var spriteMIUraninite = assetBundle.LoadAsset<Sprite>("MIUraninite");
             var spriteMIQuartz = assetBundle.LoadAsset<Sprite>("MIQuartz");
             var spritetabcraft = assetBundle.LoadAsset<Sprite>("MIFabTabCraft");
             var spritetabunpack = assetBundle.LoadAsset<Sprite>("MIFabTabUnpack");
             var SpriteSaltAlex = saltassetsalex.LoadAsset<Sprite>("Salt");
-            Logger.Debug("Loading alternative sprites... (15/15)", LogType.Console);
-            Logger.Debug("Alternative sprites loaded", LogType.Console);
+            MI.Log.Debug("Loading alternative sprites... (15/15)");
+            MI.Log.Debug("Alternative sprites loaded");
 
             if (_alttextures == true)
             {
                 Logger.Info("Alternative textures is true");
-                Logger.Debug("Applying alternative sprites... (0/13)", LogType.Console);
+                MI.Log.Debug("Applying alternative sprites... (0/13)");
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIDiamond, spriteMIDiamond));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILithium, spriteMILithium));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMICopper, spriteMICopper));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILead, spriteMILead));
-                Logger.Debug("Applying alternative sprites... (5/13)", LogType.Console);
+                MI.Log.Debug("Applying alternative sprites... (5/13)");
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISilver, spriteMISilver));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIMagnetite, spriteMIMagnetite));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMINickel, spriteMINickel));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIKyanite, spriteMIKyanite));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIRuby, spriteMIRuby));
-                Logger.Debug("Applying alternative sprites... (10/13)", LogType.Console);
+                MI.Log.Debug("Applying alternative sprites... (10/13)");
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIUraninite, spriteMIUraninite));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIQuartz, spriteMIQuartz));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltAlex));
-                Logger.Debug("Applying alternative sprites... (13/13)", LogType.Console);
-                Logger.Debug("Alernative sprites applied", LogType.Console);
-                Logger.Debug("Loading fabricator tabs with alternative sprites... (0/2)", LogType.Console);
+                MI.Log.Debug("Applying alternative sprites... (13/13)");
+                MI.Log.Debug("Alernative sprites applied");
+                MI.Log.Debug("Loading fabricator tabs with alternative sprites... (0/2)");
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft));
-                Logger.Debug("Loading fabricator tabs with alternative sprites... (1/2)", LogType.Console);
+                MI.Log.Debug("Loading fabricator tabs with alternative sprites... (1/2)");
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack));
-                Logger.Debug("Loading fabricator tabs with alternative sprites... (2/2)", LogType.Console);
-                Logger.Debug("Fabricator tabs with alternative sprites loaded", LogType.Console);
+                MI.Log.Debug("Loading fabricator tabs with alternative sprites... (2/2)");
+                MI.Log.Debug("Fabricator tabs with alternative sprites loaded");
             }
             else
             {
                 Logger.Info("Alternative textures is false");
-                Logger.Debug("Applying sprites... (0/13)", LogType.Console);
+                MI.Log.Debug("Applying sprites... (0/13)");
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIGold, spriteMIGold2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIDiamond, spriteMIDiamond2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILithium, spriteMILithium2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMICopper, spriteMICopper2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMILead, spriteMILead2));
-                Logger.Debug("Applying sprites... (5/13)", LogType.Console);
+                MI.Log.Debug("Applying sprites... (5/13)");
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISilver, spriteMISilver2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIMagnetite, spriteMIMagnetite2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMINickel, spriteMINickel2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIKyanite, spriteMIKyanite2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIRuby, spriteMIRuby2));
-                Logger.Debug("Applying sprites... (10/13)", LogType.Console);
+                MI.Log.Debug("Applying sprites... (10/13)");
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIUraninite, spriteMIUraninite2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMIQuartz, spriteMIQuartz2));
                 CustomSpriteHandler.customSprites.Add(new CustomSprite(techTypeMISalt, SpriteSaltYenz));
-                Logger.Debug("Applying sprites... (13/13)", LogType.Console);
-                Logger.Debug("Sprites applied", LogType.Console);
-                Logger.Debug("Loading fabricator tabs... (0/2)", LogType.Console);
+                MI.Log.Debug("Applying sprites... (13/13)");
+                MI.Log.Debug("Sprites applied");
+                MI.Log.Debug("Loading fabricator tabs... (0/2)");
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft2));
-                Logger.Debug("Loading fabricator tabs... (1/2)", LogType.Console);
+                MI.Log.Debug("Loading fabricator tabs... (1/2)");
                 CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack2));
-                Logger.Debug("Loading fabricator tabs... (2/2)", LogType.Console);
-                Logger.Debug("Fabricator tabs loaded", LogType.Console);
+                MI.Log.Debug("Loading fabricator tabs... (2/2)");
+                MI.Log.Debug("Fabricator tabs loaded");
             }
 
-            Logger.Debug("Adding TechTypes to the PDA Databank... (0/26)", LogType.Console);
+            MI.Log.Debug("Adding TechTypes to the PDA Databank... (0/26)");
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIGold);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIDiamond);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMILithium);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMICopper);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMILead);
-            Logger.Debug("Adding TechTypes to the PDA Databank... (5/26)", LogType.Console);
+            MI.Log.Debug("Adding TechTypes to the PDA Databank... (5/26)");
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMISilver);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIMagnetite);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMINickel);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIKyanite);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIRuby);
-            Logger.Debug("Adding TechTypes to the PDA Databank... (10/26)", LogType.Console);
+            MI.Log.Debug("Adding TechTypes to the PDA Databank... (10/26)");
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIUraninite);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMIQuartz);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techTypeMISalt);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Gold);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Diamond);
-            Logger.Debug("Adding TechTypes to the PDA Databank... (15/26)", LogType.Console);
+            MI.Log.Debug("Adding TechTypes to the PDA Databank... (15/26)");
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Lithium);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Copper);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Lead);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Silver);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Magnetite);
-            Logger.Debug("Adding TechTypes to the PDA Databank... (20/26)", LogType.Console);
+            MI.Log.Debug("Adding TechTypes to the PDA Databank... (20/26)");
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Nickel);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Kyanite);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.AluminumOxide);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.UraniniteCrystal);
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Quartz);
-            Logger.Debug("Adding TechTypes to the PDA Databank... (25/26)", LogType.Console);
+            MI.Log.Debug("Adding TechTypes to the PDA Databank... (25/26)");
             CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, TechType.Salt);
-            Logger.Debug("Adding TechTypes to the PDA Databank... (26/26)", LogType.Console);
-            Logger.Debug("TechTypes added to the PDA Databank", LogType.Console);
+            MI.Log.Debug("Adding TechTypes to the PDA Databank... (26/26)");
+            MI.Log.Debug("TechTypes added to the PDA Databank");
 
-            Logger.Debug("Linking recipes... (0/26)", LogType.Console);
+            MI.Log.Debug("Linking recipes... (0/26)");
             CraftDataPatcher.customTechData.Add(techTypeMIGold, techDataMIGold);
             CraftDataPatcher.customTechData.Add(TechType.Gold, techDataMIGoldB);
             CraftDataPatcher.customTechData.Add(techTypeMIDiamond, techDataMIDiamond);
             CraftDataPatcher.customTechData.Add(TechType.Diamond, techDataMIDiamondB);
             CraftDataPatcher.customTechData.Add(techTypeMILithium, techDataMILithium);
-            Logger.Debug("Linking recipes... (5/26)", LogType.Console);
+            MI.Log.Debug("Linking recipes... (5/26)");
             CraftDataPatcher.customTechData.Add(TechType.Lithium, techDataMILithiumB);
             CraftDataPatcher.customTechData.Add(techTypeMICopper, techDataMICopper);
             CraftDataPatcher.customTechData.Add(TechType.Copper, techDataMICopperB);
             CraftDataPatcher.customTechData.Add(techTypeMILead, techDataMILead);
             CraftDataPatcher.customTechData.Add(TechType.Lead, techDataMILeadB);
-            Logger.Debug("Linking recipes... (10/26)", LogType.Console);
+            MI.Log.Debug("Linking recipes... (10/26)");
             CraftDataPatcher.customTechData.Add(techTypeMISilver, techDataMISilver);
             CraftDataPatcher.customTechData.Add(TechType.Silver, techDataMISilverB);
             CraftDataPatcher.customTechData.Add(techTypeMIMagnetite, techDataMIMagnetite);
             CraftDataPatcher.customTechData.Add(TechType.Magnetite, techDataMIMagnetiteB);
             CraftDataPatcher.customTechData.Add(techTypeMINickel, techDataMINickel);
-            Logger.Debug("Linking recipes... (15/26)", LogType.Console);
+            MI.Log.Debug("Linking recipes... (15/26)");
             CraftDataPatcher.customTechData.Add(TechType.Nickel, techDataMINickelB);
             CraftDataPatcher.customTechData.Add(techTypeMIKyanite, techDataMIKyanite);
             CraftDataPatcher.customTechData.Add(TechType.Kyanite, techDataMIKyaniteB);
             CraftDataPatcher.customTechData.Add(techTypeMIRuby, techDataMIRuby);
             CraftDataPatcher.customTechData.Add(TechType.AluminumOxide, techDataMIRubyB);
-            Logger.Debug("Linking recipes... (20/26)", LogType.Console);
+            MI.Log.Debug("Linking recipes... (20/26)");
             CraftDataPatcher.customTechData.Add(techTypeMIUraninite, techDataMIUraninite);
             CraftDataPatcher.customTechData.Add(TechType.UraniniteCrystal, techDataMIUraniniteB);
             CraftDataPatcher.customTechData.Add(techTypeMIQuartz, techDataMIQuartz);
             CraftDataPatcher.customTechData.Add(TechType.Quartz, techDataMIQuartzB);
             CraftDataPatcher.customTechData.Add(techTypeMISalt, techDataMISalt);
-            Logger.Debug("Linking recipes... (25/26)", LogType.Console);
+            MI.Log.Debug("Linking recipes... (25/26)");
             CraftDataPatcher.customTechData.Add(TechType.Salt, techDataMISaltB);
-            Logger.Debug("Linking recipes... (26/26)", LogType.Console);
-            Logger.Debug("Recipes linked", LogType.Console);
+            MI.Log.Debug("Linking recipes... (26/26)");
+            MI.Log.Debug("Recipes linked");
 
-            Logger.Debug("Adding fabricator nodes... (0/26)", LogType.Console);
+            MI.Log.Debug("Adding fabricator nodes... (0/26)");
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIGold, CraftScheme.Fabricator, "Resources/Craft/MIGold"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Gold, CraftScheme.Fabricator, "Resources/Unpack/Gold"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIDiamond, CraftScheme.Fabricator, "Resources/Craft/MIDiamond"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Diamond, CraftScheme.Fabricator, "Resources/Unpack/Diamond"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMILithium, CraftScheme.Fabricator, "Resources/Craft/MILithium"));
-            Logger.Debug("Adding fabricator nodes... (5/26)", LogType.Console);
+            MI.Log.Debug("Adding fabricator nodes... (5/26)");
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Lithium, CraftScheme.Fabricator, "Resources/Unpack/Lithium"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMICopper, CraftScheme.Fabricator, "Resources/Craft/MICopper"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Copper, CraftScheme.Fabricator, "Resources/Unpack/Copper"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMILead, CraftScheme.Fabricator, "Resources/Craft/MILead"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Lead, CraftScheme.Fabricator, "Resources/Unpack/Lead"));
-            Logger.Debug("Adding fabricator nodes... (10/26)", LogType.Console);
+            MI.Log.Debug("Adding fabricator nodes... (10/26)");
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMISilver, CraftScheme.Fabricator, "Resources/Craft/MISilver"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Silver, CraftScheme.Fabricator, "Resources/Unpack/Silver"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIMagnetite, CraftScheme.Fabricator, "Resources/Craft/MIMagnetite"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Magnetite, CraftScheme.Fabricator, "Resources/Unpack/Magnetite"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMINickel, CraftScheme.Fabricator, "Resources/Craft/MINickel"));
-            Logger.Debug("Adding fabricator nodes... (15/26)", LogType.Console);
+            MI.Log.Debug("Adding fabricator nodes... (15/26)");
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Nickel, CraftScheme.Fabricator, "Resources/Unpack/Nickel"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIKyanite, CraftScheme.Fabricator, "Resources/Craft/MIKyanite"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Kyanite, CraftScheme.Fabricator, "Resources/Unpack/Kyanite"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIRuby, CraftScheme.Fabricator, "Resources/Craft/MIRuby"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.AluminumOxide, CraftScheme.Fabricator, "Resources/Unpack/AluminumOxide"));
-            Logger.Debug("Adding fabricator nodes... (20/26)", LogType.Console);
+            MI.Log.Debug("Adding fabricator nodes... (20/26)");
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIUraninite, CraftScheme.Fabricator, "Resources/Craft/MIUraninite"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.UraniniteCrystal, CraftScheme.Fabricator, "Resources/Unpack/UraniniteCrystal"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMIQuartz, CraftScheme.Fabricator, "Resources/Craft/MIQuartz"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Quartz, CraftScheme.Fabricator, "Resources/Unpack/Quartz"));
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(techTypeMISalt, CraftScheme.Fabricator, "Resources/Craft/MISalt"));
-            Logger.Debug("Adding fabricator nodes... (25/26)", LogType.Console);
+            MI.Log.Debug("Adding fabricator nodes... (25/26)");
             CraftTreePatcher.customNodes.Add(new CustomCraftNode(TechType.Salt, CraftScheme.Fabricator, "Resources/Unpack/Salt"));
-            Logger.Debug("Adding fabricator nodes... (26/26)", LogType.Console);
-            Logger.Debug("Fabricator nodes added", LogType.Console);
+            MI.Log.Debug("Adding fabricator nodes... (26/26)");
+            MI.Log.Debug("Fabricator nodes added");
 
-            Logger.Debug("Setting custom item sizes... (0/14)", LogType.Console);
+            MI.Log.Debug("Setting custom item sizes... (0/14)");
             CraftDataPatcher.customItemSizes[key: techTypeMIGold] = new Vector2int(x: _xMIGold, y: _yMIGold);
             CraftDataPatcher.customItemSizes[key: techTypeMIDiamond] = new Vector2int(x: _xMIDiamond, y: _yMIDiamond);
             CraftDataPatcher.customItemSizes[key: techTypeMILithium] = new Vector2int(x: _xMILithium, y: _yMILithium);
             CraftDataPatcher.customItemSizes[key: techTypeMICopper] = new Vector2int(x: _xMICopper, y: _yMICopper);
             CraftDataPatcher.customItemSizes[key: techTypeMILead] = new Vector2int(x: _xMILead, y: _yMILead);
-            Logger.Debug("Setting custom item sizes... (5/14)", LogType.Console);
+            MI.Log.Debug("Setting custom item sizes... (5/14)");
             CraftDataPatcher.customItemSizes[key: techTypeMISilver] = new Vector2int(x: _xMISilver, y: _yMISilver);
             CraftDataPatcher.customItemSizes[key: techTypeMIMagnetite] = new Vector2int(x: _xMIMagnetite, y: _yMIMagnetite);
             CraftDataPatcher.customItemSizes[key: techTypeMINickel] = new Vector2int(x: _xMINickel, y: _yMINickel);
             CraftDataPatcher.customItemSizes[key: techTypeMIKyanite] = new Vector2int(x: _xMIKyanite, y: _yMIKyanite);
             CraftDataPatcher.customItemSizes[key: techTypeMIRuby] = new Vector2int(x: _xMIRuby, y: _yMIRuby);
-            Logger.Debug("Setting custom item sizes... (10/14)", LogType.Console);
+            MI.Log.Debug("Setting custom item sizes... (10/14)");
             CraftDataPatcher.customItemSizes[key: techTypeMIUraninite] = new Vector2int(x: _xMIUraninite, y: _yMIUraninite);
             CraftDataPatcher.customItemSizes[key: techTypeMIQuartz] = new Vector2int(x: _xMIQuartz, y: _yMIQuartz);
             CraftDataPatcher.customItemSizes[key: techTypeMISalt] = new Vector2int(x: _xMISalt, y: _yMISalt);
             CraftDataPatcher.customItemSizes[key: TechType.TitaniumIngot] = new Vector2int(x: _xTitaniumIngot, y: _yTitaniumIngot);
-            Logger.Debug("Setting custom item sizes... (14/14)", LogType.Console);
-            Logger.Debug("Custom item sizes set", LogType.Console);
-            Logger.Debug("Finished loading", LogType.Console);
+            MI.Log.Debug("Setting custom item sizes... (14/14)");
+            MI.Log.Debug("Custom item sizes set");
+            MI.Log.Debug("Finished loading");
         }
     }
 } 
