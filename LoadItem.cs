@@ -62,7 +62,7 @@ namespace MoreIngots.MI
                 Config.TryGet(ref _a, languageName, "Craft amount");
                 Config.TryGet(ref _e, languageName, "Enabled");
                 Log.Debug(languageName, Status.Start);
-                if (_e == true)
+                if (_e == false)
                 {
                     Log.Debug(languageName, "Item is disabled");
                     return;
