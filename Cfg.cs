@@ -121,9 +121,9 @@ namespace MoreIngots.MI
                 | Config.TryGet(ref _aMISalt, "Salt Lick", "Craft amount");
                 if (configChanged)
                 {
-                    Log.Debug("Config", "Some values are missing from the config, adding them now...");
-                    Log.Debug("Config", "Missing values added");
+                    Log.Info("Config", "Some values are missing from the config, adding them now...");
                     Save("Config");
+                    Log.Info("Config", "Missing values added");
                 }
                 Log.Debug("Config", Status.Stop);
             }
