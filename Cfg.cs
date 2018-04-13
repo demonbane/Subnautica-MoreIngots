@@ -74,6 +74,20 @@ namespace MoreIngots.MI
                 var _aMIQuartz = 10;
                 var _aMISalt = 10;
 
+                var _eMIGold = true;
+                var _eMIDiamond = true;
+                var _eMILithium = true;
+                var _eMICopper = true;
+                var _eMILead = true;
+                var _eMISilver = true;
+                var _eMIMagnetite = true;
+                var _eMINickel = true;
+                var _eMIKyanite = true;
+                var _eMIRuby = true;
+                var _eMIUraninite = true;
+                var _eMIQuartz = true;
+                var _eMISalt = true;
+
                 Config.Load();
                 var configChanged =
                 Config.TryGet(ref _alttextures, "Alternative textures")
@@ -106,6 +120,7 @@ namespace MoreIngots.MI
                 | Config.TryGet(ref _yMIQuartz, "Quartz Ingot", "Size", "y")
                 | Config.TryGet(ref _xMISalt, "Salt Lick", "Size", "x")
                 | Config.TryGet(ref _yMISalt, "Salt Lick", "Size", "y")
+
                 | Config.TryGet(ref _aMIGold, "Gold Ingot", "Craft amount")
                 | Config.TryGet(ref _aMIDiamond, "Diamond Ingot", "Craft amount")
                 | Config.TryGet(ref _aMILithium, "Lithium Ingot", "Craft amount")
@@ -118,7 +133,21 @@ namespace MoreIngots.MI
                 | Config.TryGet(ref _aMIRuby, "Ruby Ingot", "Craft amount")
                 | Config.TryGet(ref _aMIUraninite, "Uraninite Ingot", "Craft amount")
                 | Config.TryGet(ref _aMIQuartz, "Quartz Ingot", "Craft amount")
-                | Config.TryGet(ref _aMISalt, "Salt Lick", "Craft amount");
+                | Config.TryGet(ref _aMISalt, "Salt Lick", "Craft amount")
+
+                | Config.TryGet(ref _eMIGold, "Gold Ingot", "Enabled")
+                | Config.TryGet(ref _eMIDiamond, "Diamond Ingot", "Enabled")
+                | Config.TryGet(ref _eMILithium, "Lithium Ingot", "Enabled")
+                | Config.TryGet(ref _eMICopper, "Copper Ingot", "Enabled")
+                | Config.TryGet(ref _eMILead, "Lead Ingot", "Enabled")
+                | Config.TryGet(ref _eMISilver, "Silver Ingot", "Enabled")
+                | Config.TryGet(ref _eMIMagnetite, "Magnetite Ingot", "Enabled")
+                | Config.TryGet(ref _eMINickel, "Nickel Ingot", "Enabled")
+                | Config.TryGet(ref _eMIKyanite, "Kyanite Ingot", "Enabled")
+                | Config.TryGet(ref _eMIRuby, "Ruby Ingot", "Enabled")
+                | Config.TryGet(ref _eMIUraninite, "Uraninite Ingot", "Enabled")
+                | Config.TryGet(ref _eMIQuartz, "Quartz Ingot", "Enabled")
+                | Config.TryGet(ref _eMISalt, "Salt Lick", "Enabled");
                 if (configChanged)
                 {
                     Log.Info("Config", "Some values are missing from the config, adding them now...");

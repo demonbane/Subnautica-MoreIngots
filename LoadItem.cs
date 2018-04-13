@@ -51,6 +51,7 @@ namespace MoreIngots.MI
                 var _x = 1;
                 var _y = 1;
                 var _a = 10;
+                var _e = true;
                 var Config = Cfg.Config;
                 var moreingots = LoadAssetBundles.moreingots;
                 var ingotsplus = LoadAssetBundles.ingotsplus;
@@ -59,10 +60,11 @@ namespace MoreIngots.MI
                 Config.TryGet(ref _x, languageName, "Size", "x");
                 Config.TryGet(ref _y, languageName, "Size", "y");
                 Config.TryGet(ref _a, languageName, "Craft amount");
+                Config.TryGet(ref _e, languageName, "Enabled");
                 Log.Debug(languageName, Status.Start);
-                if (_a == 0)
+                if (_e == true)
                 {
-                    Log.Info(languageName, "Craft amount was set to 0, so the item was completely disabled");
+                    Log.Debug(languageName, "Item is disabled");
                     return;
                 }
                 Log.Debug(languageName, "Checking config data for errors... (0/6)");
@@ -98,11 +100,11 @@ namespace MoreIngots.MI
                     Log.Info(languageName, "Y was set to 1");
                 }
                 Log.Debug(languageName, "Checking config data for errors... (4/6)");
-                if (_a < 0)
+                if (_a <= 0)
                 {
                     _a = 10;
                     Config[languageName, "Craft amount"] = _a;
-                    Log.Warning(languageName, "Craft amount can't be less than 0");
+                    Log.Warning(languageName, "Craft amount can't be less than 1");
                     Log.Info(languageName, "Craft amount was set to 10");
                 }
                 Log.Debug(languageName, "Checking config data for errors... (5/6)");
