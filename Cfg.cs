@@ -74,7 +74,6 @@ namespace MoreIngots.MI
                 var _aMIQuartz = 10;
                 var _aMISalt = 10;
 
-                Log.Debug("config", Status.Start);
                 Config.Load();
                 var configChanged =
                 Config.TryGet(ref _alttextures, "Alternative textures")
