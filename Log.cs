@@ -43,7 +43,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -61,7 +61,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -78,7 +78,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -96,7 +96,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -113,7 +113,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -131,7 +131,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -152,7 +152,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -174,7 +174,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -187,7 +187,7 @@ namespace MoreIngots.MI
         public static void Debug(string name, Status status, bool always = false)
         {
             try
-            { 
+            {
                 if (status == Status.Start)
                 {
                     if (Cfg._debug || always)
@@ -205,8 +205,16 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
+        }
+        /// <summary>
+        /// Logs an exception
+        /// </summary>
+        /// <param name="e">Exception</param>
+        public static void e(Exception e)
+        {
+            e.Log(LogType.Console);
         }
     }
 }

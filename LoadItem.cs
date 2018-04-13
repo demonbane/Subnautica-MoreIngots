@@ -60,6 +60,11 @@ namespace MoreIngots.MI
                 Config.TryGet(ref _y, languageName, "Size", "y");
                 Config.TryGet(ref _a, languageName, "Craft amount");
                 Log.Debug(languageName, Status.Start);
+                if (_a == 0)
+                {
+                    Log.Info(languageName, "Craft amount was set to 0, so the item was completely disabled");
+                    return;
+                }
                 Log.Debug(languageName, "Checking config data for errors... (0/6)");
                 if (_x <= 0)
                 {
@@ -93,11 +98,11 @@ namespace MoreIngots.MI
                     Log.Info(languageName, "Y was set to 1");
                 }
                 Log.Debug(languageName, "Checking config data for errors... (4/6)");
-                if (_a <= 0)
+                if (_a < 0)
                 {
                     _a = 10;
                     Config[languageName, "Craft amount"] = _a;
-                    Log.Warning(languageName, "Craft amount can't be less than 1");
+                    Log.Warning(languageName, "Craft amount can't be less than 0");
                     Log.Info(languageName, "Craft amount was set to 10");
                 }
                 Log.Debug(languageName, "Checking config data for errors... (5/6)");
@@ -226,7 +231,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
 
         }
@@ -289,7 +294,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
     }

@@ -25,8 +25,7 @@ namespace MoreIngots
             try
             {
                 Log.Info("Started loading");
-                Logger.ClearCustomLog();
-                Cfg.Load();
+                Cfg.Init();
                 LoadAssetBundles.Load();
                 LoadFabricatorTabs.Load();
                 LoadItem.TitaniumIngot();
@@ -47,9 +46,8 @@ namespace MoreIngots
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
-
         }
     }
 } 

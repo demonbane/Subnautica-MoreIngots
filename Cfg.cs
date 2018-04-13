@@ -129,7 +129,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
 
@@ -146,7 +146,7 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
             }
         }
         /// <summary>
@@ -163,7 +163,22 @@ namespace MoreIngots.MI
             }
             catch (Exception e)
             {
-                e.Log(LogType.Console);
+                Log.e(e);
+            }
+        }
+        /// <summary>
+        /// Initializes the config
+        /// </summary>
+        public static void Init()
+        {
+            try
+            {
+                Logger.ClearCustomLog();
+                Load();
+            }
+            catch (Exception e)
+            {
+                Log.e(e);
             }
         }
     }
