@@ -235,7 +235,6 @@ namespace MoreIngots.MI
             {
                 Log.e(e);
             }
-
         }
 
         /// <summary>
