@@ -144,7 +144,7 @@ namespace MoreIngots.MI
                 Log.Debug(languageName, "Loading TechDatas... (2/2)");
                 Log.Debug(languageName, "TechDatas loaded");
                 Log.Debug(languageName, "Adding unlock on start for " + from + "...");
-                KnownTechPatcher.unlockedAtStart.Add(TechType.Gold);
+                KnownTechPatcher.unlockedAtStart.Add(from);
                 Log.Debug(languageName, "Unlock on start added for " + from);
                 if (inassetbundles == InAssetBundles.All)
                 {
