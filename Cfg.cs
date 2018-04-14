@@ -33,6 +33,9 @@ namespace MoreIngots.MI
 
                 var _xTitaniumIngot = 1;
                 var _yTitaniumIngot = 1;
+                var _xPlasteel = 1;
+                var _yPlasteel = 1;
+
                 var _xMIGold = 1;
                 var _yMIGold = 1;
                 var _xMIDiamond = 1;
@@ -92,8 +95,12 @@ namespace MoreIngots.MI
                 var configChanged =
                 Config.TryGet(ref _alttextures, "Alternative textures")
                 | Config.TryGet(ref _debug, "Enable debugging")
+
                 | Config.TryGet(ref _xTitaniumIngot, "Titanium Ingot", "Size", "x")
                 | Config.TryGet(ref _yTitaniumIngot, "Titanium Ingot", "Size", "y")
+                | Config.TryGet(ref _xPlasteel, "Plasteel Ingot", "Size", "x")
+                | Config.TryGet(ref _yPlasteel, "Plasteel Ingot", "Size", "y")
+
                 | Config.TryGet(ref _xMIGold, "Gold Ingot", "Size", "x")
                 | Config.TryGet(ref _yMIGold, "Gold Ingot", "Size", "y")
                 | Config.TryGet(ref _xMIDiamond, "Compressed Diamond", "Size", "x")

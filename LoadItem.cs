@@ -299,5 +299,67 @@ namespace MoreIngots.MI
                 Log.e(e);
             }
         }
+
+        /// <summary>
+        /// Loads item sizes for titanium ingot
+        /// </summary>
+        public static void PlasteelIngot()
+        {
+            var _xPlasteel = 1;
+            var _yPlasteel = 1;
+            var Start = Status.Start;
+            var Stop = Status.Stop;
+            try
+            {
+                var Config = Cfg.Config;
+                var pname = "Plasteel Ingot";
+                Config.TryGet(ref _xPlasteel, pname, "Size", "x");
+                Config.TryGet(ref _yPlasteel, pname, "Size", "y");
+                Log.Debug(pname, Start);
+                Log.Debug(pname, "Checking config data for errors... (0/4)");
+                if (_xPlasteel <= 0)
+                {
+                    _xPlasteel = 1;
+                    Config[pname, "Size", "x"] = _xPlasteel;
+                    Log.Warning(pname, "X can't be less than 1");
+                    Log.Info(pname, "X was set to 1");
+                }
+                Log.Debug(pname, "Checking config data for errors... (1/4)");
+                if (_xPlasteel > 6)
+                {
+                    _xPlasteel = 1;
+                    Config[pname, "Size", "x"] = _xPlasteel;
+                    Log.Warning(pname, "X can't be greater than 6");
+                    Log.Info(pname, "X was set to 1");
+                }
+                Log.Debug(pname, "Checking config data for errors... (2/4)");
+                if (_yPlasteel <= 0)
+                {
+                    _yPlasteel = 1;
+                    Config[pname, "Size", "y"] = _yPlasteel;
+                    Log.Warning(pname, "Y can't be less than 0");
+                    Log.Info(pname, "Y was set to 1");
+                }
+                Log.Debug(pname, "Checking config data for errors... (3/4)");
+                if (_yPlasteel > 8)
+                {
+                    _yPlasteel = 1;
+                    Config[pname, "Size", "y"] = _yPlasteel;
+                    Log.Warning(pname, "Y can't be greater than 8");
+                    Log.Info(pname, "Y was set to 1");
+                }
+                Log.Debug(pname, "Checking config data for errors... (4/4)");
+                Log.Debug(pname, "Error check complete");
+                Cfg.Save("Titanium Ingot");
+                Log.Debug(pname, "Applying item size...");
+                CraftDataPatcher.customItemSizes[key: TechType.PlasteelIngot] = new Vector2int(_xPlasteel, _yPlasteel);
+                Log.Debug(pname, "Item size applied");
+                Log.Debug(pname, Stop);
+            }
+            catch (Exception e)
+            {
+                Log.e(e);
+            }
+        }
     }
 }
