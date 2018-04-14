@@ -29,6 +29,7 @@ namespace MoreIngots
                 LoadAssetBundles.Load();
                 LoadFabricatorTabs.Load();
                 LoadItem.TitaniumIngot();
+                LoadItem.PlasteelIngot();
                 LoadItem.Load("MIGold", "Gold Ingot", "Au. Compressed gold. Added by the MoreIngots mod", TechType.Gold, "Gold", "MIGold", "IPGold");
                 LoadItem.Load("MIDiamond", "Compressed Diamond", "C. Compressed diamond. Added by the MoreIngots mod", TechType.Diamond, "Diamond", "MIDiamond", "IPDiamond");
                 LoadItem.Load("MILithium", "Lithium Ingot", "Li. Compressed lithium. Added by the MoreIngots mod", TechType.Lithium, "Lithium", "MILithium", "IPLithium");
