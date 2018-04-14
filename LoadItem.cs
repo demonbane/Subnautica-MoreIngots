@@ -258,7 +258,7 @@ namespace MoreIngots.MI
                 if (_xTitaniumIngot <= 0)
                 {
                     _xTitaniumIngot = 1;
-                    Config["Titanium Ingot", "Size", "x"] = _xTitaniumIngot;
+                    Config[titname, "Size", "x"] = _xTitaniumIngot;
                     Log.Warning(titname, "X can't be less than 1");
                     Log.Info(titname, "X was set to 1");
                 }
@@ -266,7 +266,7 @@ namespace MoreIngots.MI
                 if (_xTitaniumIngot > 6)
                 {
                     _xTitaniumIngot = 1;
-                    Config["Titanium Ingot", "Size", "x"] = _xTitaniumIngot;
+                    Config[titname, "Size", "x"] = _xTitaniumIngot;
                     Log.Warning(titname, "X can't be greater than 6");
                     Log.Info(titname, "X was set to 1");
                 }
@@ -274,7 +274,7 @@ namespace MoreIngots.MI
                 if (_yTitaniumIngot <= 0)
                 {
                     _yTitaniumIngot = 1;
-                    Config["Titanium Ingot", "Size", "y"] = _yTitaniumIngot;
+                    Config[titname, "Size", "y"] = _yTitaniumIngot;
                     Log.Warning(titname, "Y can't be less than 0");
                     Log.Info(titname, "Y was set to 1");
                 }
@@ -282,13 +282,13 @@ namespace MoreIngots.MI
                 if (_yTitaniumIngot > 8)
                 {
                     _yTitaniumIngot = 1;
-                    Config["Titanium Ingot", "Size", "y"] = _yTitaniumIngot;
+                    Config[titname, "Size", "y"] = _yTitaniumIngot;
                     Log.Warning(titname, "Y can't be greater than 8");
                     Log.Info(titname, "Y was set to 1");
                 }
                 Log.Debug(titname, "Checking config data for errors... (4/4)");
                 Log.Debug(titname, "Error check complete");
-                Cfg.Save("Titanium Ingot");
+                Cfg.Save(titname);
                 Log.Debug(titname, "Applying item size...");
                 CraftDataPatcher.customItemSizes[key: TechType.TitaniumIngot] = new Vector2int(_xTitaniumIngot, _yTitaniumIngot);
                 Log.Debug(titname, "Item size applied");
