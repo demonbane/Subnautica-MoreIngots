@@ -214,7 +214,14 @@ namespace MoreIngots.MI
         /// <param name="e">Exception</param>
         public static void e(Exception e)
         {
-            e.Log(LogType.Console);
+            try
+            {
+                e.Log(LogType.Console);
+            }
+            catch
+            {
+                e.Log(LogType.Custom);
+            }
         }
     }
 }
