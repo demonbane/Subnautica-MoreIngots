@@ -62,6 +62,8 @@ namespace MoreIngots.MI
                 var _yMIQuartz = 1;
                 var _xMISalt = 1;
                 var _yMISalt = 1;
+                var _xMISulphur = 1;
+                var _yMISulphur = 1;
 
                 var _aMIGold = 10;
                 var _aMIDiamond = 10;
@@ -76,6 +78,7 @@ namespace MoreIngots.MI
                 var _aMIUraninite = 10;
                 var _aMIQuartz = 10;
                 var _aMISalt = 10;
+                var _aMISulphur = 10;
 
                 var _eMIGold = true;
                 var _eMIDiamond = true;
@@ -90,6 +93,7 @@ namespace MoreIngots.MI
                 var _eMIUraninite = true;
                 var _eMIQuartz = true;
                 var _eMISalt = true;
+                var _eMISulphur = true;
 
                 cfgfile.Load();
                 var configChanged =
@@ -127,6 +131,8 @@ namespace MoreIngots.MI
                 | cfgfile.TryGet(ref _yMIQuartz, "Compressed Quartz", "Size", "y")
                 | cfgfile.TryGet(ref _xMISalt, "Salt Lick", "Size", "x")
                 | cfgfile.TryGet(ref _yMISalt, "Salt Lick", "Size", "y")
+                | cfgfile.TryGet(ref _xMISulphur, "Compressed Sulphur", "Size", "y")
+                | cfgfile.TryGet(ref _yMISulphur, "Compressed Sulphur", "Size", "y")
 
                 | cfgfile.TryGet(ref _aMIGold, "Gold Ingot", "Craft amount")
                 | cfgfile.TryGet(ref _aMIDiamond, "Compressed Diamond", "Craft amount")
@@ -141,6 +147,7 @@ namespace MoreIngots.MI
                 | cfgfile.TryGet(ref _aMIUraninite, "Uraninite Ingot", "Craft amount")
                 | cfgfile.TryGet(ref _aMIQuartz, "Compressed Quartz", "Craft amount")
                 | cfgfile.TryGet(ref _aMISalt, "Salt Lick", "Craft amount")
+                | cfgfile.TryGet(ref _aMISulphur, "Compressed Sulphur", "Craft amount")
 
                 | cfgfile.TryGet(ref _eMIGold, "Gold Ingot", "Enabled")
                 | cfgfile.TryGet(ref _eMIDiamond, "Compressed Diamond", "Enabled")
@@ -154,7 +161,9 @@ namespace MoreIngots.MI
                 | cfgfile.TryGet(ref _eMIRuby, "Compressed Ruby", "Enabled")
                 | cfgfile.TryGet(ref _eMIUraninite, "Uraninite Ingot", "Enabled")
                 | cfgfile.TryGet(ref _eMIQuartz, "Compressed Quartz", "Enabled")
-                | cfgfile.TryGet(ref _eMISalt, "Salt Lick", "Enabled");
+                | cfgfile.TryGet(ref _eMISalt, "Salt Lick", "Enabled")
+                | cfgfile.TryGet(ref _eMISulphur, "Compressed Sulphur", "Enabled");
+
                 if (configChanged)
                 {
                     Log.Info("cfgfile", "Some values are missing from the config, adding them now...");
