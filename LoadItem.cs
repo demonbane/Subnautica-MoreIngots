@@ -154,88 +154,6 @@ namespace MoreIngots.MI
                     Log.Debug(languageName, "Adding unlock on start for " + from + "...");
                     KnownTechPatcher.unlockedAtStart.Add(from);
                     Log.Debug(languageName, "Unlock on start added for " + from);
-                    if (inassetbundles == InAssetBundles.All)
-                    {
-                        if (MI.Config._alttextures)
-                        {
-                            Log.Debug(languageName, "Asset bundle \"moreingots\" selected");
-                            Log.Debug(languageName, "Obtaining sprite...");
-                            if (moreingots.LoadAsset<Sprite>(alt_assetPath) == null)
-                            {
-                                Log.Error(languageName, "Sprite is null");
-                                goto NullSprite;
-                            }
-                            var alt_sprite = moreingots.LoadAsset<Sprite>(alt_assetPath);
-                            Log.Debug(languageName, "Sprite obtained");
-                            Log.Debug(languageName, "Applying sprite...");
-                            CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, alt_sprite));
-                            Log.Debug(languageName, "Sprite applied");
-                        }
-                        else
-                        {
-                            Log.Debug(languageName, "Asset bundle \"yenzen-ingotsplus\" selected");
-                            Log.Debug(languageName, "Obtaining sprite...");
-                            if (ingotsplus.LoadAsset<Sprite>(assetPath) == null)
-                            {
-                                Log.Error(languageName, "Sprite is null");
-                                goto NullSprite;
-                            }
-                            var sprite = ingotsplus.LoadAsset<Sprite>(assetPath);
-                            Log.Debug(languageName, "Sprite obtained");
-                            Log.Debug(languageName, "Applying sprite...");
-                            CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, sprite));
-                            Log.Debug(languageName, "Sprite applied");
-                        }
-                    }
-                    if (inassetbundles == InAssetBundles.Salt)
-                    {
-                        if (MI.Config._alttextures)
-                        {
-                            Log.Debug(languageName, "Asset bundle \"salt-alexejheroytb\" selected");
-                            Log.Debug(languageName, "Obtaining sprite...");
-                            if (moreingots_salt.LoadAsset<Sprite>(alt_assetPath) == null)
-                            {
-                                Log.Error(languageName, "Sprite is null");
-                                goto NullSprite;
-                            }
-                            var alt_sprite = moreingots_salt.LoadAsset<Sprite>(alt_assetPath);
-                            Log.Debug(languageName, "Sprite obtained");
-                            Log.Debug(languageName, "Applying sprite...");
-                            CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, alt_sprite));
-                            Log.Debug(languageName, "Sprite applied");
-                        }
-                        else
-                        {
-                            Log.Debug(languageName, "Asset bundle \"salt-yenzen\" selected");
-                            Log.Debug(languageName, "Obtaining sprite...");
-                            if (ingotsplus_salt.LoadAsset<Sprite>(assetPath) == null)
-                            {
-                                Log.Error(languageName, "Sprite is null");
-                                goto NullSprite;
-                            }
-                            var sprite = ingotsplus_salt.LoadAsset<Sprite>(assetPath);
-                            Log.Debug(languageName, "Sprite obtained");
-                            Log.Debug(languageName, "Applying sprite...");
-                            CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, sprite));
-                            Log.Debug(languageName, "Sprite applied");
-                        }
-                    }
-                    if (inassetbundles == InAssetBundles.Sulphur)
-                    {
-                        Log.Debug(languageName, "Asset bundle \"sulphur\" selected");
-                        Log.Debug(languageName, "Obtaining sprite...");
-                        if (sulphur.LoadAsset<Sprite>(assetPath) == null)
-                        {
-                            Log.Error(languageName, "Sprite is null");
-                            goto NullSprite;
-                        }
-                        var s_sprite = sulphur.LoadAsset<Sprite>(assetPath);
-                        Log.Debug(languageName, "Sprite obtained");
-                        Log.Debug(languageName, "Applying sprite...");
-                        CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, s_sprite));
-                        Log.Debug(languageName, "Sprite applied");
-                    }
-                    NullSprite:;
                     Log.Debug(languageName, "Adding TechTypes to the PDA Databank... (0/2)");
                     CraftDataPatcher.AddToCustomGroup(TechGroup.Resources, TechCategory.BasicMaterials, techType);
                     Log.Debug(languageName, "Adding TechTypes to the PDA Databank... (1/2)");
@@ -257,6 +175,93 @@ namespace MoreIngots.MI
                     Log.Debug(languageName, "Applying item sizes...");
                     CraftDataPatcher.customItemSizes[key: techType] = new Vector2int(_x, _y);
                     Log.Debug(languageName, "Item sizes applied");
+                    Log.Debug(languageName, "Starting sprite loading...");
+                    if (inassetbundles == InAssetBundles.All)
+                    {
+                        if (MI.Config._alttextures)
+                        {
+                            Log.Debug(languageName, "Asset bundle \"moreingots\" selected");
+                            Log.Debug(languageName, "Obtaining sprite...");
+                            if (moreingots.LoadAsset<Sprite>(alt_assetPath) == null)
+                            {
+                                Log.Error(languageName, "Sprite is null");
+                                Log.Debug(languageName, Status.Stop);
+                                return;
+                            }
+                            var alt_sprite = moreingots.LoadAsset<Sprite>(alt_assetPath);
+                            Log.Debug(languageName, "Sprite obtained");
+                            Log.Debug(languageName, "Applying sprite...");
+                            CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, alt_sprite));
+                            Log.Debug(languageName, "Sprite applied");
+                        }
+                        else
+                        {
+                            Log.Debug(languageName, "Asset bundle \"yenzen-ingotsplus\" selected");
+                            Log.Debug(languageName, "Obtaining sprite...");
+                            if (ingotsplus.LoadAsset<Sprite>(assetPath) == null)
+                            {
+                                Log.Error(languageName, "Sprite is null");
+                                Log.Debug(languageName, Status.Stop);
+                                return;
+                            }
+                            var sprite = ingotsplus.LoadAsset<Sprite>(assetPath);
+                            Log.Debug(languageName, "Sprite obtained");
+                            Log.Debug(languageName, "Applying sprite...");
+                            CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, sprite));
+                            Log.Debug(languageName, "Sprite applied");
+                        }
+                    }
+                    if (inassetbundles == InAssetBundles.Salt)
+                    {
+                        if (MI.Config._alttextures)
+                        {
+                            Log.Debug(languageName, "Asset bundle \"salt-alexejheroytb\" selected");
+                            Log.Debug(languageName, "Obtaining sprite...");
+                            if (moreingots_salt.LoadAsset<Sprite>(alt_assetPath) == null)
+                            {
+                                Log.Error(languageName, "Sprite is null");
+                                Log.Debug(languageName, Status.Stop);
+                                return;
+                            }
+                            var alt_sprite = moreingots_salt.LoadAsset<Sprite>(alt_assetPath);
+                            Log.Debug(languageName, "Sprite obtained");
+                            Log.Debug(languageName, "Applying sprite...");
+                            CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, alt_sprite));
+                            Log.Debug(languageName, "Sprite applied");
+                        }
+                        else
+                        {
+                            Log.Debug(languageName, "Asset bundle \"salt-yenzen\" selected");
+                            Log.Debug(languageName, "Obtaining sprite...");
+                            if (ingotsplus_salt.LoadAsset<Sprite>(assetPath) == null)
+                            {
+                                Log.Error(languageName, "Sprite is null");
+                                Log.Debug(languageName, Status.Stop);
+                                return;
+                            }
+                            var sprite = ingotsplus_salt.LoadAsset<Sprite>(assetPath);
+                            Log.Debug(languageName, "Sprite obtained");
+                            Log.Debug(languageName, "Applying sprite...");
+                            CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, sprite));
+                            Log.Debug(languageName, "Sprite applied");
+                        }
+                    }
+                    if (inassetbundles == InAssetBundles.Sulphur)
+                    {
+                        Log.Debug(languageName, "Asset bundle \"sulphur\" selected");
+                        Log.Debug(languageName, "Obtaining sprite...");
+                        if (sulphur.LoadAsset<Sprite>(assetPath) == null)
+                        {
+                            Log.Error(languageName, "Sprite is null");
+                            Log.Debug(languageName, Status.Stop);
+                            return;
+                        }
+                        var s_sprite = sulphur.LoadAsset<Sprite>(assetPath);
+                        Log.Debug(languageName, "Sprite obtained");
+                        Log.Debug(languageName, "Applying sprite...");
+                        CustomSpriteHandler.customSprites.Add(new CustomSprite(techType, s_sprite));
+                        Log.Debug(languageName, "Sprite applied");
+                    }
                     Log.Debug(languageName, Status.Stop);
                 }
                 catch (Exception e)
