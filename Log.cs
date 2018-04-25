@@ -145,7 +145,7 @@ namespace MoreIngots.MI
         {
             try
             { 
-                if (Cfg._debug || always)
+                if (MI.Config._debug || always)
                 {
                     Logger.Debug(message, type);
                 }
@@ -167,7 +167,7 @@ namespace MoreIngots.MI
         {
             try
             { 
-                if (Cfg._debug || always)
+                if (MI.Config._debug || always)
                 {
                     Logger.Debug("[" + prefix + "] " + message, type);
                 }
@@ -190,13 +190,13 @@ namespace MoreIngots.MI
             {
                 if (status == Status.Start)
                 {
-                    if (Cfg._debug || always)
+                    if (MI.Config._debug || always)
                     {
                         Logger.Debug("Loading " + name + "...");
                     }
                     if (status == Status.Stop)
                     {
-                        if (Cfg._debug || always)
+                        if (MI.Config._debug || always)
                         {
                             Logger.Debug(name + " loaded");
                         }
@@ -221,6 +221,22 @@ namespace MoreIngots.MI
             catch
             {
                 e.Log(LogType.Custom);
+            }
+        }
+    }
+    public static class LoadingStartStop
+    {
+        public static void LoadingStarted()
+        {
+            Log.Info("Started loading");
+        }
+        public static void LoadingFinished()
+        {
+            Log.Info("Finished loading");
+            if (Config._alttextures)
+            {
+                Log.Info("Hey, it looks like you are using alternative textures.", LogType.Console | LogType.Custom | LogType.PlayerScreen);
+                Log.Info("Please note that these are no longer supported and will be removed in a future update!", LogType.Console | LogType.Custom | LogType.PlayerScreen);
             }
         }
     }

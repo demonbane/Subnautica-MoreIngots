@@ -15,20 +15,20 @@ namespace MoreIngots.MI
     /// <summary>
     /// Main class for loading the fabricator tabs
     /// </summary>
-    public class LoadFabricatorTabs
+    public partial class Load
     {
         /// <summary>
         /// Loads the fabricator tabs
         /// </summary>
-        public static void Load()
+        public static void FabricatorTabs()
         {
             try
             {
-                var spritetabcraft = LoadAssetBundles.moreingots.LoadAsset<Sprite>("MIFabTabCraft");
-                var spritetabunpack = LoadAssetBundles.moreingots.LoadAsset<Sprite>("MIFabTabUnpack");
-                var spritetabcraft2 = LoadAssetBundles.ingotsplus.LoadAsset<Sprite>("IPFabTabCraft");
-                var spritetabunpack2 = LoadAssetBundles.ingotsplus.LoadAsset<Sprite>("IPFabTabUnpack");
-                if (Cfg._alttextures)
+                var spritetabcraft = moreingots.LoadAsset<Sprite>("MIFabTabCraft");
+                var spritetabunpack = moreingots.LoadAsset<Sprite>("MIFabTabUnpack");
+                var spritetabcraft2 = ingotsplus.LoadAsset<Sprite>("IPFabTabCraft");
+                var spritetabunpack2 = ingotsplus.LoadAsset<Sprite>("IPFabTabUnpack");
+                if (MI.Config._alttextures)
                 {
                     MI.Log.Debug("Loading fabricator tabs with alternative sprites... (0/2)");
                     CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft));

@@ -66,7 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoadAssetBundles.cs" />
-    <Compile Include="Cfg.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="LoadFabricatorTabs.cs" />
     <Compile Include="LoadItem.cs" />
     <Compile Include="Log.cs" />

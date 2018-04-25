@@ -9,6 +9,7 @@ using LogLevel = Utilites.Logger.LogLevel;
 using System;
 using Utilites.Logger;
 using MoreIngots.MI;
+using static MoreIngots.MI.LoadingStartStop;
 
 namespace MoreIngots
 {
@@ -24,26 +25,27 @@ namespace MoreIngots
         {
             try
             {
-                Log.Info("Started loading");
-                Cfg.Init();
-                LoadAssetBundles.Load();
-                LoadFabricatorTabs.Load();
-                LoadItem.TitaniumIngot();
-                LoadItem.PlasteelIngot();
-                LoadItem.Load("MIGold", "Gold Ingot", "Au. Compressed gold. Added by the MoreIngots mod", TechType.Gold, "Gold", "MIGold", "IPGold");
-                LoadItem.Load("MIDiamond", "Compressed Diamond", "C. Compressed diamond. Added by the MoreIngots mod", TechType.Diamond, "Diamond", "MIDiamond", "IPDiamond");
-                LoadItem.Load("MILithium", "Lithium Ingot", "Li. Compressed lithium. Added by the MoreIngots mod", TechType.Lithium, "Lithium", "MILithium", "IPLithium");
-                LoadItem.Load("MICopper", "Copper Ingot", "Cu. Compressed copper. Added by the MoreIngots mod", TechType.Copper, "Copper", "MICopper", "IPCopper");
-                LoadItem.Load("MILead", "Lead Ingot", "Pb. Compressed lead. Added by the MoreIngots mod", TechType.Lead, "Lead", "MILead", "IPLead");
-                LoadItem.Load("MISilver", "Silver Ingot", "Ag. Compressed silver. Added by the MoreIngots mod", TechType.Silver, "Silver", "MISilver", "IPSilver");
-                LoadItem.Load("MIMagnetite", "Compressed Magnetite", "Fe3O4. Compressed magnetite. Added by the MoreIngots mod", TechType.Magnetite, "Magnetite", "MIMagnetite", "IPMagnetite");
-                LoadItem.Load("MINickel", "Nickel Ingot", "Ni. Compressed nickel. Added by the MoreIngots mod", TechType.Nickel, "Nickel", "MINickel", "IPNickel");
-                LoadItem.Load("MIKyanite", "Compressed Kyanite", "Al2SiO5. Compressed kyanite. Added by the MoreIngots mod", TechType.Kyanite, "Kyanite", "MIKyanite", "IPKyanite");
-                LoadItem.Load("MIRuby", "Compressed Ruby", "Al2O3. Compressed ruby. Added by the MoreIngots mod", TechType.AluminumOxide, "AluminiumOxide", "MIRuby", "IPRuby");
-                LoadItem.Load("MIUraninite", "Compressed Uraninite", "U3O8. Compressed uraninite. Added by the MoreIngots mod", TechType.UraniniteCrystal, "UraniniteCrystal", "MIUraninite", "IPUraninite");
-                LoadItem.Load("MIQuartz", "Compressed Quartz", "SiO4. Compressed quartz. Added by the MoreIngots mod", TechType.Quartz, "Quartz", "MIQuartz", "IPQuartz");
-                LoadItem.Load("MISalt", "Salt Lick", "NaCl. Salt. Added by the MoreIngots mod. (Suggested by Oddwood)", TechType.Salt, "Salt", "Salt", "Salt", InAssetBundles.Salt);
-                Log.Info("Finished loading");
+                LoadingStarted();
+                Load.Config();
+                Load.AssetBundles();
+                Load.FabricatorTabs();
+                Load.Item.TitaniumIngot();
+                Load.Item.PlasteelIngot();
+                Load.Item.Custom("MIGold", "Gold Ingot", "Au. Compressed gold. Added by the MoreIngots mod", TechType.Gold, "MIGold", "IPGold");
+                Load.Item.Custom("MIDiamond", "Compressed Diamond", "C. Compressed diamond. Added by the MoreIngots mod", TechType.Diamond, "MIDiamond", "IPDiamond");
+                Load.Item.Custom("MILithium", "Lithium Ingot", "Li. Compressed lithium. Added by the MoreIngots mod", TechType.Lithium, "MILithium", "IPLithium");
+                Load.Item.Custom("MICopper", "Copper Ingot", "Cu. Compressed copper. Added by the MoreIngots mod", TechType.Copper, "MICopper", "IPCopper");
+                Load.Item.Custom("MILead", "Lead Ingot", "Pb. Compressed lead. Added by the MoreIngots mod", TechType.Lead, "MILead", "IPLead");
+                Load.Item.Custom("MISilver", "Silver Ingot", "Ag. Compressed silver. Added by the MoreIngots mod", TechType.Silver, "MISilver", "IPSilver");
+                Load.Item.Custom("MIMagnetite", "Compressed Magnetite", "Fe3O4. Compressed magnetite. Added by the MoreIngots mod", TechType.Magnetite, "MIMagnetite", "IPMagnetite");
+                Load.Item.Custom("MINickel", "Nickel Ingot", "Ni. Compressed nickel. Added by the MoreIngots mod", TechType.Nickel, "MINickel", "IPNickel");
+                Load.Item.Custom("MIKyanite", "Compressed Kyanite", "Al2SiO5. Compressed kyanite. Added by the MoreIngots mod", TechType.Kyanite, "MIKyanite", "IPKyanite");
+                Load.Item.Custom("MIRuby", "Compressed Ruby", "Al2O3. Compressed ruby. Added by the MoreIngots mod", TechType.AluminumOxide, "MIRuby", "IPRuby");
+                Load.Item.Custom("MIUraninite", "Compressed Uraninite", "U3O8. Compressed uraninite. Added by the MoreIngots mod", TechType.UraniniteCrystal, "MIUraninite", "IPUraninite");
+                Load.Item.Custom("MIQuartz", "Compressed Quartz", "SiO4. Compressed quartz. Added by the MoreIngots mod", TechType.Quartz, "MIQuartz", "IPQuartz");
+                Load.Item.Custom("MISalt", "Salt Lick", "NaCl. Salt. Added by the MoreIngots mod. (Suggested by Oddwood)", TechType.Salt, "Salt", "Salt", InAssetBundles.Salt);
+                Load.Item.Custom("MISulphur", "Compressed Sulphur", "S. Compressed Sulphur. Added by the MoreIngots mod. (Suggested by gnivler)", TechType.Sulphur, "Crystalline Sulphur", InAssetBundles.Sulphur);
+                LoadingFinished();
             }
             catch (Exception e)
             {
