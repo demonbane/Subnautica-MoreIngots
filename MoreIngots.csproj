@@ -78,7 +78,8 @@
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>copy /y "$(TargetPath)" "%25QMODS_DIR%25\$(TargetName)\$(TargetFileName)"</PostBuildEvent>
+    <PostBuildEvent>copy /y "$(TargetPath)" "D:\Games\Subnautica\QMods\$(TargetName)\$(TargetFileName)"
+echo y | del "$(TargetDir)\Assembly-CSharp.dll" "$(TargetDir)\Assembly-CSharp-firstpass.dll" "$(TargetDir)\DeconstructFireExtinguishers.pdb" "$(TargetDir)\iTween.dll" "$(TargetDir)\LibNoise.dll" "$(TargetDir)\LitJson.dll" "$(TargetDir)\LumenWorks.dll" "$(TargetDir)\Mono.Cecil.dll" "$(TargetDir)\Newtonsoft.Json.dll" "$(TargetDir)\Poly2Tri.dll" "$(TargetDir)\QModInstaller.dll" "$(TargetDir)\SMLHelper.dll" "$(TargetDir)\UnityEngine.dll" "$(TargetDir)\UnityEngine.UI.dll"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
