@@ -13,7 +13,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>.\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -78,10 +78,10 @@
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>copy /y "C:\Users\user\Desktop\Subnautica Mods\MoreIngots\bin\Debug\MoreIngots.dll" "D:\Games\Subnautica\QMods\MoreIngots"
-move /y "C:\Users\user\Desktop\Subnautica Mods\MoreIngots\bin\Debug\MoreIngots.dll" "C:\Users\user\Desktop\Subnautica Mods\MoreIngots\"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>echo y | del "C:\Users\user\Desktop\Subnautica Mods\MoreIngots\MoreIngots.dll"</PreBuildEvent>
+    <PreBuildEvent>copy /y "$(TargetPath)" "%25QMODS_DIR%25\$(TargetName)\$(TargetFileName)"</PreBuildEvent>
   </PropertyGroup>
 </Project>
