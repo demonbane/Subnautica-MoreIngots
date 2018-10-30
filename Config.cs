@@ -1,4 +1,4 @@
-﻿using SMLHelper;
+using SMLHelper;
 using SMLHelper.Patchers;
 using System.Collections.Generic;
 using UnityEngine;
