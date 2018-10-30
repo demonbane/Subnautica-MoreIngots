@@ -1,5 +1,4 @@
-﻿using SMLHelper;
-using SMLHelper.Patchers;
+using SMLHelper.V2.Handlers;
 using System.Collections.Generic;
 using UnityEngine;
 using Utilites.Config;
@@ -24,28 +23,15 @@ namespace MoreIngots.MI
         {
             try
             {
-                var spritetabcraft = moreingots.LoadAsset<Sprite>("MIFabTabCraft");
-                var spritetabunpack = moreingots.LoadAsset<Sprite>("MIFabTabUnpack");
+                Log.Debug("Loading fabricator tabs... (0/2)");
+                ingotsplus = ingotDict["yenzen-ingotsplus"];
                 var spritetabcraft2 = ingotsplus.LoadAsset<Sprite>("IPFabTabCraft");
                 var spritetabunpack2 = ingotsplus.LoadAsset<Sprite>("IPFabTabUnpack");
-                if (MI.Config._alttextures)
-                {
-                    MI.Log.Debug("Loading fabricator tabs with alternative sprites... (0/2)");
-                    CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft));
-                    MI.Log.Debug("Loading fabricator tabs with alternative sprites... (1/2)");
-                    CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack));
-                    MI.Log.Debug("Loading fabricator tabs with alternative sprites... (2/2)");
-                    MI.Log.Debug("Fabricator tabs with alternative sprites loaded");
-                }
-                else
-                {
-                    MI.Log.Debug("Loading fabricator tabs... (0/2)");
-                    CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Craft", "Craft MoreIngots", CraftScheme.Fabricator, spritetabcraft2));
-                    MI.Log.Debug("Loading fabricator tabs... (1/2)");
-                    CraftTreePatcher.customTabs.Add(new CustomCraftTab("Resources/Unpack", "Unpack MoreIngots", CraftScheme.Fabricator, spritetabunpack2));
-                    MI.Log.Debug("Loading fabricator tabs... (2/2)");
-                    MI.Log.Debug("Fabricator tabs loaded");
-                }
+                CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Craft", "Craft MoreIngots", spritetabcraft2, "Resources");
+                Log.Debug("Loading fabricator tabs... (1/2)");
+                CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Unpack", "Unpack MoreIngots", spritetabunpack2, "Resources");
+                Log.Debug("Loading fabricator tabs... (2/2)");
+                Log.Debug("Fabricator tabs loaded");
             }
             catch (Exception e)
             {
