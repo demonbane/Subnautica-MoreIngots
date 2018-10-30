@@ -7,6 +7,7 @@ using Logger = Utilites.Logger.Logger;
 using LogType = Utilites.Logger.LogType;
 using LogLevel = Utilites.Logger.LogLevel;
 using System;
+using System.IO;
 using Utilites.Logger;
 using MoreIngots.MI;
 
@@ -17,11 +18,10 @@ namespace MoreIngots.MI
     /// </summary>
     public partial class Load
     {
-        public static AssetBundle moreingots;
         public static AssetBundle ingotsplus;
-        public static AssetBundle moreingots_salt;
         public static AssetBundle ingotsplus_salt;
         public static AssetBundle sulphur;
+        public static Dictionary<string, AssetBundle> ingotDict;
         /// <summary>
         /// Loads the asset bundles
         /// </summary>
@@ -29,22 +29,15 @@ namespace MoreIngots.MI
         {
             try
             {
-                Log.Debug("Loading asset bundles... (0/5)");
-                moreingots = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/moreingots.assets");
-                Log.Debug("\"moreingots\" asset bundle loaded");
-                Log.Debug("Loading asset bundles... (1/5)");
-                ingotsplus = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/yenzen-ingotsplus.assets");
-                Log.Debug("\"yenzen-ingotsplus\" asset bundle loaded");
-                Log.Debug("Loading asset bundles... (2/5)");
-                moreingots_salt = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-alexejheroytb.assets");
-                Log.Debug("\"salt-alexejheroytb\" asset bundle loaded");
-                Log.Debug("Loading asset bundles... (3/5)");
-                ingotsplus_salt = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/salt-yenzen.assets");
-                Log.Debug("\"salt-yenzen\" asset bundle loaded");
-                Log.Debug("Loading asset bundles... (4/5)");
-                sulphur = AssetBundle.LoadFromFile(@"./QMods/MoreIngots/Assets/sulphur.assets");
-                Log.Debug("\"sulphur\" asset bundle loaded");
-                Log.Debug("Loading asset bundles... (5/5)");
+                ingotDict = new Dictionary<string, AssetBundle>();
+                //string[] assetNames = { "yenzen-ingotsplus", "salt-yenzen", "sulphur", "unpackingotsassets" };
+                string[] assetNames = { "yenzen-ingotsplus", "salt-yenzen", "sulphur" };
+                for (int i = 0; i < assetNames.Length; i++)
+                {
+                    Log.Debug($"Loading asset bundles... ({i.ToString()}/{assetNames.Length.ToString()})");
+                    ingotDict.Add(assetNames[i], AssetBundle.LoadFromFile($@"./QMods/MoreIngots/Assets/{assetNames[i]}.assets"));
+                    Log.Debug($"\"{assetNames[i]}\" asset bundle loaded");
+                }
                 Log.Debug("Asset bundles loaded");
             }
             catch (Exception e)
