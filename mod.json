@@ -1,8 +1,8 @@
 {
   "Id": "MoreIngots",
   "DisplayName": "MoreIngots",
-  "Author": "AlexejheroYTB",
-  "Version": "1.0.0",
+  "Author": "demonbane",
+  "Version": "1.2.4",
   "Requires": [],
   "Enable": true,
   "AssemblyName": "MoreIngots.dll",

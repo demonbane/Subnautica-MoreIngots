@@ -34,17 +34,17 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>D:\Games\Subnautica\Subnautica_Data\Managed\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=1.0.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\SteamLibrary\steamapps\common\Subnautica\Subnautica_Data\Managed\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Games\Subnautica\Subnautica_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>G:\SteamLibrary\steamapps\common\Subnautica\Subnautica_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="SMLHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Games\Subnautica\QMods\Modding Helper\SMLHelper.dll</HintPath>
+    <Reference Include="SMLHelper">
+      <HintPath>..\..\..\AppData\Roaming\Vortex\subnautica\mods\SMLHelper-113-2-0-3\Modding Helper\SMLHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,18 +52,19 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\Games\Subnautica\Subnautica_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="Utilites, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Games\Subnautica\QMods\Utilites\Utilites.dll</HintPath>
+      <HintPath>G:\SteamLibrary\steamapps\common\Subnautica\Subnautica_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilites">
+      <HintPath>..\..\..\AppData\Roaming\Vortex\subnautica\mods\Utilites-1.0.3.zip-45-1-0-3\Utilites\Utilites.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include=".vs\MoreIngots\v15\.suo" />
     <None Include=".vs\slnx.sqlite" />
     <None Include=".vs\VSWorkspaceState.json" />
+    <None Include="config.json" />
     <None Include="mod.json" />
   </ItemGroup>
   <ItemGroup>
@@ -80,7 +81,7 @@
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>copy /y "$(TargetPath)" "D:\Games\Subnautica\QMods\$(TargetName)\$(TargetFileName)"
+    <PostBuildEvent>copy /y "$(TargetPath)" "C:\Users\alexm\AppData\Roaming\Vortex\subnautica\mods\MoreIngots-60-1-2-3a\$(TargetName)\$(TargetFileName)"
 echo y | del "$(TargetDir)\Assembly-CSharp.dll" "$(TargetDir)\Assembly-CSharp-firstpass.dll" "$(TargetDir)\DeconstructFireExtinguishers.pdb" "$(TargetDir)\iTween.dll" "$(TargetDir)\LibNoise.dll" "$(TargetDir)\LitJson.dll" "$(TargetDir)\LumenWorks.dll" "$(TargetDir)\Mono.Cecil.dll" "$(TargetDir)\Newtonsoft.Json.dll" "$(TargetDir)\Poly2Tri.dll" "$(TargetDir)\QModInstaller.dll" "$(TargetDir)\SMLHelper.dll" "$(TargetDir)\UnityEngine.dll" "$(TargetDir)\UnityEngine.UI.dll"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
