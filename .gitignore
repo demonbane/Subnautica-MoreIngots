@@ -1,0 +1,15 @@
+0Harmony.dll
+AssemblyInfo.cs
+MoreIngots.pdb
+Utilites.dll
+Utilites.xml
+SMLHelper.xml
+obj/*
+bin/*
+.vs/*
+Properties/AssemblyInfo.cs
+*.cache
+*.ide-wal
+*.ide-shm
+*.ide
+*.lock
