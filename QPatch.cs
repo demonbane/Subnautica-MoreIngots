@@ -44,7 +44,7 @@ namespace MoreIngots
                 Load.Item.Custom("MIQuartz", "Compressed Quartz", "SiO4. Compressed quartz. Added by the MoreIngots mod", TechType.Quartz, "IPQuartz");
                 Load.Item.Custom("MISalt", "Salt Lick", "NaCl. Salt. Added by the MoreIngots mod. (Suggested by Oddwood)", TechType.Salt, "Salt", InAssetBundles.Salt);
                 Load.Item.Custom("MISulphur", "Compressed Sulphur", "S. Compressed Sulphur. Added by the MoreIngots mod. (Suggested by gnivler)", TechType.Sulphur, "Crystalline Sulphur", InAssetBundles.Sulphur);
-                Load.Item.Custom("MIIonCrystal", "Ion Crystal Matrix", "Compressed Ion Cube. Added by the MoreIngots mod.", TechType.PrecursorIonCrystal, null, InAssetBundles.IonCrystalMatrix);
+                Load.Item.Custom("MIIonCrystal", "Ion Crystal Matrix", "Compressed Ion Cube. Added by the MoreIngots mod.", TechType.PrecursorIonCrystal, "IPUraninite", InAssetBundles.All);
                 Load.Item.PlasteelIngot();
                 LoadingFinished();
             }

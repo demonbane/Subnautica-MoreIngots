@@ -30,12 +30,7 @@ namespace MoreIngots.MI
         /// <summary>
         /// Asset bundles for sulphur
         /// </summary>
-        Sulphur,
-
-        /// <summary>
-        /// Built-in asset for the Ion Crystal Matrix
-        /// </summary>
-        IonCrystalMatrix
+        Sulphur
     }
 
     /// <summary>
@@ -81,22 +76,13 @@ namespace MoreIngots.MI
                         return;
                     }
                     Log.Debug(languageName, "Starting sprite loading...");
-                    if (inassetbundles == InAssetBundles.IonCrystalMatrix)
+                    var sprite = LoadSprite(languageName, assetPath, inassetbundles);
+                    if (sprite == null)
                     {
-                        Log.Debug(languageName, "Sprite obtained");
-                        Log.Debug(languageName, "Adding TechType...");
-                        techType = TechTypeHandler.AddTechType(name, languageName, languageTooltip, SpriteManager.Get(TechType.PrecursorIonCrystalMatrix));
+                        return;
                     }
-                    else
-                    {
-                        var sprite = LoadSprite(languageName, assetPath, inassetbundles);
-                        if (sprite == null)
-                        {
-                            return;
-                        }
-                        Log.Debug(languageName, "Adding TechType...");
-                        techType = TechTypeHandler.AddTechType(name, languageName, languageTooltip, sprite);
-                    }
+                    Log.Debug(languageName, "Adding TechType...");
+                    techType = TechTypeHandler.AddTechType(name, languageName, languageTooltip, sprite);
                     Log.Debug(languageName, "TechType added");
                     Log.Debug(languageName, "Loading TechDatas... (0/2)");
                     var techData = new TechData()
@@ -156,7 +142,6 @@ namespace MoreIngots.MI
             {
                 var _x = 1;
                 var _y = 1;
-                var _a = 10;
                 var _e = true;
 
                 var languageName = "Titanium Ingot";
@@ -168,12 +153,9 @@ namespace MoreIngots.MI
                         var Config = MI.Config.cfgfile;
                         Config.TryGet(ref _x, languageName, "Size", "x");
                         Config.TryGet(ref _y, languageName, "Size", "y");
-                        Config.TryGet(ref _a, languageName, "Craft amount");
                         Config.TryGet(ref _e, languageName, "Enabled");
                     }
                     Log.Debug(languageName, "Adding TechType...");
-                    var sprite = SpriteManager.Get(TechType.Titanium);
-                    //var techType = TechTypeHandler.AddTechType("MITitanium", languageName, "Turn one titanium ingot into 10 titanium", sprite);
                     var techType = TechType.ScrapMetal;
                     Log.Debug(languageName, "Adding TechData...");
                     var techDataB = new TechData()
@@ -186,10 +168,6 @@ namespace MoreIngots.MI
                         LinkedItems = new List<TechType>()
                         {
                             TechType.Titanium,
-                            //TechType.Titanium,
-                            //TechType.Titanium,
-                            //TechType.Titanium,
-                            //TechType.Titanium,
                             TechType.Titanium,
                             TechType.Titanium,
                             TechType.Titanium,
@@ -222,7 +200,6 @@ namespace MoreIngots.MI
             {
                 var _x = 1;
                 var _y = 1;
-                var _a = 10;
                 var _e = true;
 
                 var languageName = "Plasteel Ingot";
@@ -234,13 +211,11 @@ namespace MoreIngots.MI
                         var Config = MI.Config.cfgfile;
                         Config.TryGet(ref _x, languageName, "Size", "x");
                         Config.TryGet(ref _y, languageName, "Size", "y");
-                        Config.TryGet(ref _a, languageName, "Craft amount");
                         Config.TryGet(ref _e, languageName, "Enabled");
                     }
                     Log.Debug(languageName, "Adding TechType...");
                     var sprite = SpriteManager.Get(TechType.Lithium);
                     var techType = TechTypeHandler.AddTechType("MIPlasteel", languageName, "Turn one plasteel ingot into 1 titanium ingot and 2 lithium", sprite);
-                    //var techType = TechType.Lithium;
                     Log.Debug(languageName, "Adding TechData...");
                     var techDataB = new TechData()
                     {
@@ -251,19 +226,9 @@ namespace MoreIngots.MI
                         },
                         LinkedItems = new List<TechType>()
                         {
-                            //TechType.TitaniumIngot
+                            TechType.TitaniumIngot,
                             TechType.Lithium,
-                            TechType.Lithium,
-                            TechType.Titanium,
-                            TechType.Titanium,
-                            TechType.Titanium,
-                            TechType.Titanium,
-                            TechType.Titanium,
-                            TechType.Titanium,
-                            TechType.Titanium,
-                            TechType.Titanium,
-                            TechType.Titanium,
-                            TechType.Titanium
+                            TechType.Lithium
                         }
                     };
                     Log.Debug(languageName, "Linking TechData with TechType...");

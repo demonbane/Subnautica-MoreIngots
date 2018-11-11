@@ -32,6 +32,8 @@ namespace MoreIngots.MI
                 CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Unpack", "Unpack MoreIngots", spritetabunpack2, "Resources");
                 Log.Debug("Loading fabricator tabs... (2/2)");
                 Log.Debug("Fabricator tabs loaded");
+                KnownTechHandler.UnlockOnStart(TechType.ScrapMetal);
+                KnownTechHandler.UnlockOnStart(TechType.PrecursorIonCrystal);
             }
             catch (Exception e)
             {

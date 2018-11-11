@@ -1,4 +1,4 @@
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -44,7 +44,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="SMLHelper">
-      <HintPath>..\..\..\AppData\Roaming\Vortex\subnautica\mods\SMLHelper-113-2-0-3\Modding Helper\SMLHelper.dll</HintPath>
+      <HintPath>..\..\AppData\Roaming\Vortex\subnautica\mods\SMLHelper-113-2-0-3\Modding Helper\SMLHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,7 +57,7 @@
       <HintPath>G:\SteamLibrary\steamapps\common\Subnautica\Subnautica_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="Utilites">
-      <HintPath>..\..\..\AppData\Roaming\Vortex\subnautica\mods\Utilites-1.0.3.zip-45-1-0-3\Utilites\Utilites.dll</HintPath>
+      <HintPath>..\..\AppData\Roaming\Vortex\subnautica\mods\Utilites-1.0.3.zip-45-1-0-3\Utilites\Utilites.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
